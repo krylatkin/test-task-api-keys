@@ -1,7 +1,4 @@
-import MoreHorizRounded from '@mui/icons-material/MoreHorizRounded'
-import DriveFileRenameOutlineRounded from '@mui/icons-material/DriveFileRenameOutlineRounded'
-import BlockRounded from '@mui/icons-material/BlockRounded'
-import DeleteOutlineRounded from '@mui/icons-material/DeleteOutlineRounded'
+import MoreVertRounded from '@mui/icons-material/MoreVertRounded'
 import { useId, useState } from 'react'
 
 type ApiKeyActionsMenuProps = {
@@ -51,7 +48,7 @@ export function ApiKeyActionsMenu({
           setIsOpen((current) => !current)
         }}
       >
-        <MoreHorizRounded fontSize="small" />
+        <MoreVertRounded fontSize="small" />
       </button>
 
       {isOpen ? (
@@ -68,7 +65,6 @@ export function ApiKeyActionsMenu({
             className="menu__item"
             onClick={() => handleAction(onEdit)}
           >
-            <DriveFileRenameOutlineRounded fontSize="small" />
             Edit
           </button>
           <button
@@ -77,7 +73,6 @@ export function ApiKeyActionsMenu({
             className="menu__item"
             onClick={() => handleAction(onDisable)}
           >
-            <BlockRounded fontSize="small" />
             Disable
           </button>
           <button
@@ -86,7 +81,6 @@ export function ApiKeyActionsMenu({
             className="menu__item menu__item--danger"
             onClick={() => handleAction(onDelete)}
           >
-            <DeleteOutlineRounded fontSize="small" />
             Delete
           </button>
         </div>

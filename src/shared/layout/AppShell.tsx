@@ -1,11 +1,17 @@
-import AppsRounded from '@mui/icons-material/AppsRounded'
-import AutoAwesomeRounded from '@mui/icons-material/AutoAwesomeRounded'
+import AccountCircleRounded from '@mui/icons-material/AccountCircleRounded'
+import ArticleRounded from '@mui/icons-material/ArticleRounded'
 import CreditCardRounded from '@mui/icons-material/CreditCardRounded'
-import MenuRounded from '@mui/icons-material/MenuRounded'
-import NotificationsNoneRounded from '@mui/icons-material/NotificationsNoneRounded'
-import QueryStatsRounded from '@mui/icons-material/QueryStatsRounded'
-import ScienceRounded from '@mui/icons-material/ScienceRounded'
-import VpnKeyRounded from '@mui/icons-material/VpnKeyRounded'
+import DatasetRounded from '@mui/icons-material/DatasetRounded'
+import KeyRounded from '@mui/icons-material/KeyRounded'
+import MenuBookRounded from '@mui/icons-material/MenuBookRounded'
+import MoreVertRounded from '@mui/icons-material/MoreVertRounded'
+import PaidRounded from '@mui/icons-material/PaidRounded'
+import SettingsRounded from '@mui/icons-material/SettingsRounded'
+import SportsEsportsRounded from '@mui/icons-material/SportsEsportsRounded'
+import StackedBarChartRounded from '@mui/icons-material/StackedBarChartRounded'
+import WifiRounded from '@mui/icons-material/WifiRounded'
+import SignalCellularAltRounded from '@mui/icons-material/SignalCellularAltRounded'
+import BatteryStdRounded from '@mui/icons-material/BatteryStdRounded'
 import type { ReactNode } from 'react'
 
 type AppShellProps = {
@@ -13,29 +19,45 @@ type AppShellProps = {
 }
 
 const primaryNav = [
-  { label: 'Models', icon: AutoAwesomeRounded },
-  { label: 'API keys', icon: VpnKeyRounded, current: true },
-  { label: 'Usage', icon: QueryStatsRounded },
+  { label: 'Models', icon: DatasetRounded },
+  { label: 'API keys', icon: KeyRounded, current: true },
+  { label: 'Usage', icon: StackedBarChartRounded },
   { label: 'Billing', icon: CreditCardRounded },
-  { label: 'Playground', icon: ScienceRounded },
+  { label: 'Playground', icon: SportsEsportsRounded },
 ]
 
-const secondaryNav = [
-  { label: 'Models', icon: AutoAwesomeRounded },
-  { label: 'API keys', icon: VpnKeyRounded, current: true },
-  { label: 'Usage', icon: QueryStatsRounded },
+const nodeNav = [{ label: 'Node rewards', icon: PaidRounded }]
+
+const systemNav = [
+  { label: 'Settings', icon: SettingsRounded },
+  { label: 'Docs', icon: MenuBookRounded },
+]
+
+const mobileNav = [
+  { label: 'Models', icon: DatasetRounded },
+  { label: 'API keys', icon: KeyRounded, current: true },
+  { label: 'Usage', icon: StackedBarChartRounded },
   { label: 'Billing', icon: CreditCardRounded },
-  { label: 'Account', icon: AppsRounded },
+  { label: 'Account', icon: AccountCircleRounded },
 ]
 
 export function AppShell({ children }: AppShellProps) {
   return (
     <div className="app-shell">
       <aside className="app-sidebar" aria-label="Primary navigation">
-        <div className="app-sidebar__section">
-          <div className="app-sidebar__brand">
-            <span className="app-sidebar__brand-mark">F</span>
-            <span>Farlabs</span>
+        <div className="app-sidebar__section app-sidebar__section--top">
+          <div className="app-sidebar__brand-row">
+            <div className="app-sidebar__brand">
+              <span className="app-sidebar__brand-wordmark">FARLABS</span>
+            </div>
+
+            <button
+              type="button"
+              className="app-sidebar__collapse"
+              aria-label="Collapse sidebar"
+            >
+              <ArticleRounded fontSize="small" />
+            </button>
           </div>
 
           <div className="app-sidebar__nav">
@@ -55,40 +77,70 @@ export function AppShell({ children }: AppShellProps) {
               </button>
             ))}
           </div>
-        </div>
 
-        <div className="app-sidebar__footer">
-          <p className="app-sidebar__footer-title">Mock environment</p>
-          <p className="app-sidebar__footer-copy">
-            The screen is wired as if a real API could be connected next.
-          </p>
+          <div className="app-sidebar__nav">
+            <span className="app-sidebar__label">Node</span>
+
+            {nodeNav.map(({ label, icon: Icon }) => (
+              <button key={label} type="button" className="app-sidebar__link">
+                <span className="app-sidebar__link-icon">
+                  <Icon fontSize="small" />
+                </span>
+                <span>{label}</span>
+              </button>
+            ))}
+          </div>
+
+          <div className="app-sidebar__nav">
+            <span className="app-sidebar__label">System</span>
+
+            {systemNav.map(({ label, icon: Icon }) => (
+              <button key={label} type="button" className="app-sidebar__link">
+                <span className="app-sidebar__link-icon">
+                  <Icon fontSize="small" />
+                </span>
+                <span>{label}</span>
+              </button>
+            ))}
+          </div>
         </div>
       </aside>
 
       <div className="app-shell__viewport">
-        <header className="mobile-header">
-          <button type="button" className="mobile-header__button" aria-label="Open menu">
-            <MenuRounded />
-          </button>
+        <header className="desktop-topbar" aria-label="Account information">
+          <div className="desktop-topbar__spacer"></div>
+          <div className="desktop-topbar__actions">
+            <div className="desktop-pill">$145,20</div>
+            <div className="desktop-pill desktop-pill--avatar">RG</div>
+          </div>
+        </header>
 
-          <div className="mobile-header__title">
-            <span className="mobile-header__eyebrow">Farlabs</span>
-            <span className="mobile-header__page">API keys</span>
+        <header className="mobile-header">
+          <div className="mobile-statusbar" aria-hidden="true">
+            <span className="mobile-statusbar__time">9:41</span>
+            <div className="mobile-statusbar__icons">
+              <SignalCellularAltRounded sx={{ fontSize: 14 }} />
+              <WifiRounded sx={{ fontSize: 14 }} />
+              <BatteryStdRounded sx={{ fontSize: 16 }} />
+            </div>
           </div>
 
-          <button
-            type="button"
-            className="mobile-header__button"
-            aria-label="Notifications"
-          >
-            <NotificationsNoneRounded />
-          </button>
+          <div className="mobile-header__main">
+            <h1 className="mobile-header__page">API keys</h1>
+            <button
+              type="button"
+              className="mobile-header__button"
+              aria-label="More options"
+            >
+              <MoreVertRounded />
+            </button>
+          </div>
         </header>
 
         <main className="app-shell__content">{children}</main>
 
         <nav className="mobile-nav" aria-label="Bottom navigation">
-          {secondaryNav.map(({ label, icon: Icon, current }) => (
+          {mobileNav.map(({ label, icon: Icon, current }) => (
             <button
               key={label}
               type="button"
@@ -98,9 +150,11 @@ export function AppShell({ children }: AppShellProps) {
               <span className="mobile-nav__icon">
                 <Icon fontSize="small" />
               </span>
-              <span>{label}</span>
+              <span className="mobile-nav__text">{label}</span>
+              {label === 'Billing' ? <span className="mobile-nav__badge">8</span> : null}
             </button>
           ))}
+          <div className="mobile-home-indicator" aria-hidden="true"></div>
         </nav>
       </div>
     </div>

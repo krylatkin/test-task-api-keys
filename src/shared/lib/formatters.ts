@@ -5,9 +5,24 @@ export function formatRelativeDate(input: string | null): string {
 
   const target = new Date(input)
   const now = new Date()
+  const diffInHours = Math.round(
+    (now.getTime() - target.getTime()) / (1000 * 60 * 60),
+  )
   const diffInDays = Math.round(
     (now.getTime() - target.getTime()) / (1000 * 60 * 60 * 24),
   )
+
+  if (diffInHours <= 0) {
+    return 'Just now'
+  }
+
+  if (diffInHours === 1) {
+    return '1 hour ago'
+  }
+
+  if (diffInHours < 24) {
+    return `${diffInHours} hours ago`
+  }
 
   if (diffInDays <= 0) {
     return 'Today'
@@ -37,7 +52,7 @@ export function formatExpiry(input: string | null): string {
   )
 
   if (diffInDays < 0) {
-    return 'Expired'
+    return '\u2014'
   }
 
   if (diffInDays === 0) {
@@ -45,10 +60,10 @@ export function formatExpiry(input: string | null): string {
   }
 
   if (diffInDays === 1) {
-    return '1 day'
+    return 'In 1 day'
   }
 
-  return `${diffInDays} days`
+  return `In ${diffInDays} days`
 }
 
 export function formatCalendarDate(input: string): string {
@@ -58,5 +73,35 @@ export function formatCalendarDate(input: string): string {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
-  }).format(date)
+  })
+    .format(date)
+    .replaceAll('/', '.')
+}
+
+export function formatMobileSummary(
+  expiresAt: string | null,
+  lastUsedAt: string | null,
+): string {
+  const parts: string[] = []
+
+  if (expiresAt) {
+    const expiryText = formatExpiry(expiresAt)
+
+    if (expiryText !== '\u2014') {
+      parts.push(`Expires ${expiryText}`)
+    }
+  }
+
+  if (!lastUsedAt) {
+    parts.push('never used')
+  } else {
+    parts.push(`used ${formatRelativeDate(lastUsedAt)}`)
+  }
+
+  if (parts.length === 0) {
+    return 'No usage information yet'
+  }
+
+  const [firstPart, ...rest] = parts
+  return [firstPart, ...rest].join(', ')
 }

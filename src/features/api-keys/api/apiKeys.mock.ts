@@ -9,47 +9,38 @@ let store: ApiKeyItem[] = [
   {
     id: 'key-1',
     name: 'ai_inference_key',
-    maskedKey: 'sk-91a2...a7f2',
+    maskedKey: 'a1b2...x9yz',
     status: 'active',
     expiresAt: '2026-06-25T00:00:00.000Z',
-    createdAt: '2026-05-03T09:42:00.000Z',
+    createdAt: '2026-04-03T09:42:00.000Z',
     lastUsedAt: null,
   },
   {
     id: 'key-2',
     name: 'model_training_key',
-    maskedKey: 'sk-d44...e94a',
+    maskedKey: 'c3d4...w8vu',
     status: 'active',
-    expiresAt: '2026-06-16T00:00:00.000Z',
-    createdAt: '2026-04-20T13:18:00.000Z',
-    lastUsedAt: '2026-05-20T08:10:00.000Z',
+    expiresAt: '2026-06-23T00:00:00.000Z',
+    createdAt: '2026-03-31T13:18:00.000Z',
+    lastUsedAt: '2026-05-27T05:00:00.000Z',
   },
   {
     id: 'key-3',
     name: 'vision_model_key',
-    maskedKey: 'sk-f65...c174',
-    status: 'expiring',
-    expiresAt: '2026-05-31T00:00:00.000Z',
-    createdAt: '2026-04-12T11:26:00.000Z',
+    maskedKey: 'e5f6...t7rs',
+    status: 'expired',
+    expiresAt: null,
+    createdAt: '2026-03-25T11:26:00.000Z',
     lastUsedAt: '2026-05-25T15:10:00.000Z',
   },
   {
     id: 'key-4',
-    name: 'language_model_key',
-    maskedKey: 'sk-5a8...914f',
-    status: 'revoked',
-    expiresAt: null,
-    createdAt: '2026-03-14T16:04:00.000Z',
-    lastUsedAt: '2026-05-14T10:02:00.000Z',
-  },
-  {
-    id: 'key-5',
-    name: 'image_model_key',
-    maskedKey: 'sk-457...9cb1',
+    name: 'vision_model_key_v1',
+    maskedKey: 'g7h8...q6po',
     status: 'expired',
-    expiresAt: '2026-05-18T00:00:00.000Z',
-    createdAt: '2026-02-08T09:35:00.000Z',
-    lastUsedAt: '2026-05-26T18:45:00.000Z',
+    expiresAt: null,
+    createdAt: '2026-03-05T16:04:00.000Z',
+    lastUsedAt: '2026-05-14T10:02:00.000Z',
   },
 ]
 
@@ -78,7 +69,7 @@ function buildNewKeyName(sourceLength: number): string {
 }
 
 function buildMaskedKey(): string {
-  return `sk-${Math.random().toString(16).slice(2, 6)}...${Math.random()
+  return `${Math.random().toString(16).slice(2, 6)}...${Math.random()
     .toString(16)
     .slice(2, 6)}`
 }

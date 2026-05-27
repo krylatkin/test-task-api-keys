@@ -81,13 +81,10 @@ export function ApiKeysTable({
               onKeyDown={(event) => handleRowKeyDown(event, item.id)}
             >
               <td>
-                <div className="api-table__name">
-                  <strong>{item.name}</strong>
-                  <span className="api-table__hint">Backend-ready mock record</span>
-                </div>
+                <span className="api-table__name">{item.name}</span>
               </td>
               <td>
-                <span className="api-table__muted">{item.maskedKey}</span>
+                <span className="api-table__key">{item.maskedKey}</span>
               </td>
               <td>
                 <ApiKeyStatusBadge status={item.status} />
