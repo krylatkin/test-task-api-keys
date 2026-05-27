@@ -15,7 +15,7 @@ type ApiKeysTableProps = {
   selectedKeyId: string | null
   onSelect: (id: string) => void
   onEdit: (item: ApiKeyItem) => void
-  onDisable: (item: ApiKeyItem) => void
+  onToggleStatus: (item: ApiKeyItem) => void
   onDelete: (item: ApiKeyItem) => void
 }
 
@@ -25,7 +25,7 @@ export function ApiKeysTable({
   selectedKeyId,
   onSelect,
   onEdit,
-  onDisable,
+  onToggleStatus,
   onDelete,
 }: ApiKeysTableProps) {
   if (isLoading) {
@@ -96,8 +96,9 @@ export function ApiKeysTable({
               <td>
                 <ApiKeyActionsMenu
                   itemName={item.name}
+                  itemStatus={item.status}
                   onEdit={() => onEdit(item)}
-                  onDisable={() => onDisable(item)}
+                  onToggleStatus={() => onToggleStatus(item)}
                   onDelete={() => onDelete(item)}
                 />
               </td>

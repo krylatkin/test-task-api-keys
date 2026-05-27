@@ -1,21 +1,25 @@
+import type { ApiKeyStatus } from '../model/apiKeys.types'
 import MoreVertRounded from '@mui/icons-material/MoreVertRounded'
 import { useId, useState } from 'react'
 
 type ApiKeyActionsMenuProps = {
   itemName: string
+  itemStatus: ApiKeyStatus
   onEdit: () => void
-  onDisable: () => void
+  onToggleStatus: () => void
   onDelete: () => void
 }
 
 export function ApiKeyActionsMenu({
   itemName,
+  itemStatus,
   onEdit,
-  onDisable,
+  onToggleStatus,
   onDelete,
 }: ApiKeyActionsMenuProps) {
   const [isOpen, setIsOpen] = useState(false)
   const menuId = useId()
+  const toggleLabel = itemStatus === 'revoked' ? 'Enable' : 'Disable'
 
   function closeMenu() {
     setIsOpen(false)
@@ -71,9 +75,9 @@ export function ApiKeyActionsMenu({
             type="button"
             role="menuitem"
             className="menu__item"
-            onClick={() => handleAction(onDisable)}
+            onClick={() => handleAction(onToggleStatus)}
           >
-            Disable
+            {toggleLabel}
           </button>
           <button
             type="button"

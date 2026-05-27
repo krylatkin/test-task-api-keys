@@ -10,7 +10,7 @@ type ApiKeyCardListProps = {
   selectedKeyId: string | null
   onSelect: (id: string) => void
   onEdit: (item: ApiKeyItem) => void
-  onDisable: (item: ApiKeyItem) => void
+  onToggleStatus: (item: ApiKeyItem) => void
   onDelete: (item: ApiKeyItem) => void
 }
 
@@ -20,7 +20,7 @@ export function ApiKeyCardList({
   selectedKeyId,
   onSelect,
   onEdit,
-  onDisable,
+  onToggleStatus,
   onDelete,
 }: ApiKeyCardListProps) {
   if (isLoading) {
@@ -67,8 +67,9 @@ export function ApiKeyCardList({
               </div>
               <ApiKeyActionsMenu
                 itemName={item.name}
+                itemStatus={item.status}
                 onEdit={() => onEdit(item)}
-                onDisable={() => onDisable(item)}
+                onToggleStatus={() => onToggleStatus(item)}
                 onDelete={() => onDelete(item)}
               />
             </button>

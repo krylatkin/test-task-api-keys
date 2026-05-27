@@ -18,7 +18,7 @@ export function ApiKeysPage() {
     refresh,
     createKey,
     renameKey,
-    disableKey,
+    toggleKeyStatus,
     deleteKey,
   } = useApiKeys()
   const [selectedKeyIdOverride, setSelectedKeyIdOverride] = useState<string | null>(
@@ -48,8 +48,8 @@ export function ApiKeysPage() {
     setSelectedKeyIdOverride(created.id)
   }
 
-  async function handleDisableKey(item: ApiKeyItem) {
-    await disableKey(item.id)
+  async function handleToggleKeyStatus(item: ApiKeyItem) {
+    await toggleKeyStatus(item)
   }
 
   async function handleDeleteKey(item: ApiKeyItem) {
@@ -143,7 +143,7 @@ export function ApiKeysPage() {
                 selectedKeyId={selectedKeyId}
                 onSelect={setSelectedKeyIdOverride}
                 onEdit={handleEditKey}
-                onDisable={(item) => void handleDisableKey(item)}
+                onToggleStatus={(item) => void handleToggleKeyStatus(item)}
                 onDelete={(item) => void handleDeleteKey(item)}
               />
 
@@ -153,7 +153,7 @@ export function ApiKeysPage() {
                 selectedKeyId={selectedKeyId}
                 onSelect={setSelectedKeyIdOverride}
                 onEdit={handleEditKey}
-                onDisable={(item) => void handleDisableKey(item)}
+                onToggleStatus={(item) => void handleToggleKeyStatus(item)}
                 onDelete={(item) => void handleDeleteKey(item)}
               />
             </>

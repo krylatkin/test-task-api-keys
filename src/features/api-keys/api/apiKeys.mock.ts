@@ -118,6 +118,18 @@ export const mockApiKeysRepository: ApiKeysRepository = {
     store = store.map((entry) => (entry.id === id ? updated : entry))
     return cloneItem(updated)
   },
+  async enable(id: string) {
+    await delay(140)
+
+    const current = findOrThrow(id)
+    const updated: ApiKeyItem = {
+      ...current,
+      status: 'active',
+    }
+
+    store = store.map((entry) => (entry.id === id ? updated : entry))
+    return cloneItem(updated)
+  },
   async remove(id: string) {
     await delay(120)
 

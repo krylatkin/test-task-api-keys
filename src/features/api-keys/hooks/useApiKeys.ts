@@ -11,7 +11,7 @@ type UseApiKeysResult = {
   refresh: () => Promise<void>
   createKey: () => Promise<ApiKeyItem | null>
   renameKey: (id: string, name: string) => Promise<ApiKeyItem | null>
-  disableKey: (id: string) => Promise<ApiKeyItem | null>
+  toggleKeyStatus: (item: ApiKeyItem) => Promise<ApiKeyItem | null>
   deleteKey: (id: string) => Promise<boolean>
 }
 
@@ -117,12 +117,15 @@ export function useApiKeys(): UseApiKeysResult {
     }
   }, [])
 
-  const disableKey = useCallback(async (id: string) => {
+  const toggleKeyStatus = useCallback(async (item: ApiKeyItem) => {
     setIsMutating(true)
     setError(null)
 
     try {
-      const updated = await mockApiKeysRepository.revoke(id)
+      const updated =
+        item.status === 'revoked'
+          ? await mockApiKeysRepository.enable(item.id)
+          : await mockApiKeysRepository.revoke(item.id)
       setApiKeys((current) =>
         current.map((entry) => (entry.id === updated.id ? updated : entry)),
       )
@@ -131,7 +134,9 @@ export function useApiKeys(): UseApiKeysResult {
       setError(
         mutationError instanceof Error
           ? mutationError.message
-          : 'Unable to disable API key.',
+          : item.status === 'revoked'
+            ? 'Unable to enable API key.'
+            : 'Unable to disable API key.',
       )
       return null
     } finally {
@@ -173,7 +178,7 @@ export function useApiKeys(): UseApiKeysResult {
     refresh,
     createKey,
     renameKey,
-    disableKey,
+    toggleKeyStatus,
     deleteKey,
   }
 }
