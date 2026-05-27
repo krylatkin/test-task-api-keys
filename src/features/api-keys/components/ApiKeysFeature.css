@@ -14,7 +14,7 @@
 
 .table-wrap {
   display: block;
-  overflow-x: auto;
+  overflow-x: visible;
   -webkit-overflow-scrolling: touch;
 }
 
