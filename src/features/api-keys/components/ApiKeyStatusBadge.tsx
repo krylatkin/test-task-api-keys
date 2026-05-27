@@ -1,5 +1,6 @@
-import './ApiKeyStatusBadge.css'
 import type { ApiKeyStatus } from '../model/apiKeys.types'
+import './ApiKeyStatusBadge.css'
+import { Badge } from '../../../shared/ui/Badge'
 
 const STATUS_LABELS: Record<ApiKeyStatus, string> = {
   active: 'Active',
@@ -8,14 +9,24 @@ const STATUS_LABELS: Record<ApiKeyStatus, string> = {
   revoked: 'Revoked',
 }
 
+const STATUS_VARIANTS: Record<ApiKeyStatus, 'neutral' | 'accent'> = {
+  active: 'accent',
+  expiring: 'neutral',
+  expired: 'neutral',
+  revoked: 'neutral',
+}
+
 type ApiKeyStatusBadgeProps = {
   status: ApiKeyStatus
 }
 
 export function ApiKeyStatusBadge({ status }: ApiKeyStatusBadgeProps) {
   return (
-    <span className={`status-badge status-badge--${status}`}>
+    <Badge
+      variant={STATUS_VARIANTS[status]}
+      className={`api-key-status-badge api-key-status-badge--${status}`}
+    >
       {STATUS_LABELS[status]}
-    </span>
+    </Badge>
   )
 }

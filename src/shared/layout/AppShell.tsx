@@ -10,6 +10,8 @@ import SettingsRounded from '@mui/icons-material/SettingsRounded'
 import SportsEsportsRounded from '@mui/icons-material/SportsEsportsRounded'
 import StackedBarChartRounded from '@mui/icons-material/StackedBarChartRounded'
 import { useState, type ReactNode } from 'react'
+import { Badge } from '../ui/Badge'
+import { Pill } from '../ui/Pill'
 
 type AppShellProps = {
   children: ReactNode
@@ -114,8 +116,10 @@ export function AppShell({ children }: AppShellProps) {
         <header className="desktop-topbar" aria-label="Account information">
           <div className="desktop-topbar__spacer"></div>
           <div className="desktop-topbar__actions">
-            <div className="desktop-pill">$145,20</div>
-            <div className="desktop-pill desktop-pill--avatar">RG</div>
+            <Pill>$145,20</Pill>
+            <Pill className="desktop-topbar__avatar" size="lg" shape="circle">
+              RG
+            </Pill>
           </div>
         </header>
 
@@ -139,7 +143,11 @@ export function AppShell({ children }: AppShellProps) {
                 <Icon fontSize="small" />
               </span>
               <span className="mobile-nav__text">{label}</span>
-              {label === 'Billing' ? <span className="mobile-nav__badge">8</span> : null}
+              {label === 'Billing' ? (
+                <Badge size="sm" variant="danger" className="mobile-nav__badge">
+                  8
+                </Badge>
+              ) : null}
             </button>
           ))}
         </nav>
