@@ -4,6 +4,8 @@ import AddRounded from '@mui/icons-material/AddRounded'
 import CloseRounded from '@mui/icons-material/CloseRounded'
 import { useMemo, useState } from 'react'
 import { ApiKeyCardList } from '../features/api-keys/components/ApiKeyCardList'
+import { ApiKeysEmptyState } from '../features/api-keys/components/ApiKeysEmptyState'
+import { ApiKeysErrorState } from '../features/api-keys/components/ApiKeysErrorState'
 import { ApiKeysLoadingState } from '../features/api-keys/components/ApiKeysLoadingState'
 import { ApiKeysTable } from '../features/api-keys/components/ApiKeysTable'
 import { useApiKeys } from '../features/api-keys/hooks/useApiKeys'
@@ -103,41 +105,17 @@ export function ApiKeysPage() {
 
         <section className="page-surface">
           {error ? (
-            <div className="error-state" role="alert">
-              <div>
-                <h3 className="error-state__title">Unable to load API keys</h3>
-                <p className="error-state__copy">{error}</p>
-              </div>
-              <button
-                type="button"
-                className="empty-state__action"
-                onClick={() => void refresh()}
-              >
-                Retry
-              </button>
-            </div>
+            <ApiKeysErrorState
+              message={error}
+              onRetry={() => void refresh()}
+            />
           ) : isLoading ? (
             <ApiKeysLoadingState />
           ) : apiKeys.length === 0 && !isLoading ? (
-            <div className="empty-state">
-              <div className="empty-state__stack">
-                <div>
-                  <h3 className="empty-state__title">No API keys yet</h3>
-                  <p className="empty-state__copy">
-                    Create your first key to access models.
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  className="empty-state__action"
-                  onClick={() => void handleCreateKey()}
-                  disabled={isMutating}
-                >
-                  <AddRounded sx={{ fontSize: 18 }} />
-                  Create API key
-                </button>
-              </div>
-            </div>
+            <ApiKeysEmptyState
+              disabled={isMutating}
+              onCreate={() => void handleCreateKey()}
+            />
           ) : (
             <>
               <ApiKeysTable

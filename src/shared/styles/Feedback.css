@@ -1,27 +1,8 @@
-.error-state,
-.empty-state {
-  display: grid;
-  min-height: 240px;
-  padding: 24px;
-  place-items: center;
-  text-align: center;
-}
-
-.empty-state__stack {
-  display: grid;
-  width: min(100%, 360px);
-  gap: 14px;
-}
-
-.error-state__copy,
-.empty-state__copy,
 .dialog__hint,
 .dialog__label {
   color: #a3a3a3;
 }
 
-.error-state__title,
-.empty-state__title,
 .dialog__title {
   margin: 0;
   color: #f5f5f5;
