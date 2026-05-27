@@ -632,21 +632,28 @@
     position: relative;
     display: grid;
     justify-items: center;
-    gap: 8px;
+    grid-template-rows: 36px auto;
+    align-content: start;
+    gap: 6px;
     color: #b1b1b1;
     font-size: 0.7rem;
     min-width: 0;
-    padding-top: 2px;
+    padding-top: 0;
   }
 
   .mobile-nav__link[aria-current='page'] {
     color: #f5f5f5;
   }
 
-  .mobile-nav__link[aria-current='page'] .mobile-nav__icon {
+  .mobile-nav__icon {
     width: 36px;
     height: 36px;
     border-radius: 18px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-nav__link[aria-current='page'] .mobile-nav__icon {
     background: #2d2d2d;
   }
 
@@ -679,9 +686,5 @@
 
   .mobile-nav__text {
     white-space: nowrap;
-  }
-
-  .mobile-nav__link[aria-current='page'] .mobile-nav__text {
-    transform: translateY(2px);
   }
 }
