@@ -24,6 +24,10 @@
   gap: 24px;
 }
 
+.app-sidebar__section--top {
+  align-content: start;
+}
+
 .app-sidebar__brand-row,
 .desktop-topbar,
 .desktop-topbar__actions,
@@ -57,12 +61,13 @@
 }
 
 .app-sidebar__brand-wordmark {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 800;
   letter-spacing: 0.02em;
 }
 
 .app-sidebar__collapse,
+.app-sidebar__link,
 .mobile-header__button,
 .dialog__close,
 .table-actions__trigger,
@@ -85,6 +90,7 @@
   width: 34px;
   height: 34px;
   color: #f1f1f1;
+  border-radius: 10px;
 }
 
 .app-sidebar__nav {
@@ -104,10 +110,12 @@
   align-items: center;
   gap: 12px;
   width: 100%;
+  min-height: 44px;
   padding: 10px 12px;
   border-radius: 16px;
   color: #f1f1f1;
   font-size: 1rem;
+  justify-content: flex-start;
 }
 
 .app-sidebar__link[aria-current='page'] {
@@ -159,6 +167,10 @@
   display: none;
 }
 
+.mobile-nav {
+  display: none;
+}
+
 .app-shell__content {
   padding: 36px 34px 32px;
 }
@@ -176,14 +188,14 @@
 .page-header__title {
   margin: 0;
   color: #f7f7f7;
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 .page-header__description {
   margin: 8px 0 0;
   color: #9a9a9a;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
 }
 
 .page-header__primary-action,
@@ -221,16 +233,16 @@
 }
 
 .api-table thead th {
-  padding: 15px 14px;
+  padding: 15px 18px;
   text-align: left;
   color: #b5b5b5;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
   border-bottom: 1px solid #303030;
 }
 
 .api-table tbody td {
-  padding: 18px 14px;
+  padding: 17px 18px;
   color: #f2f2f2;
   font-size: 0.95rem;
   border-bottom: 1px solid #303030;
@@ -295,6 +307,7 @@
   width: 28px;
   height: 28px;
   color: #f1f1f1;
+  border-radius: 8px;
 }
 
 .menu {
