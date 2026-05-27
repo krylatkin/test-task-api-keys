@@ -99,9 +99,13 @@
     gap: 0;
   }
 
-  .page-header,
-  .page-surface {
+  .page-header {
     display: none;
+  }
+
+  .page-surface {
+    border: 0;
+    border-radius: 0;
   }
 
   .mobile-create {
