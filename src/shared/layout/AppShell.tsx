@@ -8,7 +8,7 @@ import PaidRounded from '@mui/icons-material/PaidRounded'
 import SettingsRounded from '@mui/icons-material/SettingsRounded'
 import SportsEsportsRounded from '@mui/icons-material/SportsEsportsRounded'
 import StackedBarChartRounded from '@mui/icons-material/StackedBarChartRounded'
-import type { ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 
 type AppShellProps = {
   children: ReactNode
@@ -38,8 +38,13 @@ const mobileNav = [
 ]
 
 export function AppShell({ children }: AppShellProps) {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
+
   return (
-    <div className="app-shell">
+    <div
+      className="app-shell"
+      data-sidebar-collapsed={isSidebarCollapsed ? 'true' : 'false'}
+    >
       <aside className="app-sidebar" aria-label="Primary navigation">
         <div className="app-sidebar__section app-sidebar__section--top">
           <div className="app-sidebar__brand-row">
@@ -50,7 +55,9 @@ export function AppShell({ children }: AppShellProps) {
             <button
               type="button"
               className="app-sidebar__collapse"
-              aria-label="Collapse sidebar"
+              aria-label={isSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+              aria-pressed={isSidebarCollapsed}
+              onClick={() => setIsSidebarCollapsed((current) => !current)}
             >
               <ArticleRounded fontSize="small" />
             </button>
@@ -69,7 +76,7 @@ export function AppShell({ children }: AppShellProps) {
                 <span className="app-sidebar__link-icon">
                   <Icon fontSize="small" />
                 </span>
-                <span>{label}</span>
+                <span className="app-sidebar__link-text">{label}</span>
               </button>
             ))}
           </div>
@@ -82,7 +89,7 @@ export function AppShell({ children }: AppShellProps) {
                 <span className="app-sidebar__link-icon">
                   <Icon fontSize="small" />
                 </span>
-                <span>{label}</span>
+                <span className="app-sidebar__link-text">{label}</span>
               </button>
             ))}
           </div>
@@ -95,7 +102,7 @@ export function AppShell({ children }: AppShellProps) {
                 <span className="app-sidebar__link-icon">
                   <Icon fontSize="small" />
                 </span>
-                <span>{label}</span>
+                <span className="app-sidebar__link-text">{label}</span>
               </button>
             ))}
           </div>
