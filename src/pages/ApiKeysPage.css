@@ -3,9 +3,7 @@
   gap: 18px;
 }
 
-.page-header,
-.dialog__header,
-.dialog__footer {
+.page-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,8 +30,7 @@
   line-height: 1.35;
 }
 
-.page-header__primary-action,
-.dialog__action--primary {
+.page-header__primary-action {
   display: inline-flex;
   align-items: center;
   justify-content: center;

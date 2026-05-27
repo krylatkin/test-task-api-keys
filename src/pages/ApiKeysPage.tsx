@@ -1,9 +1,8 @@
 import './ApiKeysPage.css'
-import '../shared/styles/Feedback.css'
 import AddRounded from '@mui/icons-material/AddRounded'
-import CloseRounded from '@mui/icons-material/CloseRounded'
 import { useMemo, useState } from 'react'
 import { ApiKeyCardList } from '../features/api-keys/components/ApiKeyCardList'
+import { ApiKeyEditDialog } from '../features/api-keys/components/ApiKeyEditDialog'
 import { ApiKeysEmptyState } from '../features/api-keys/components/ApiKeysEmptyState'
 import { ApiKeysErrorState } from '../features/api-keys/components/ApiKeysErrorState'
 import { ApiKeysLoadingState } from '../features/api-keys/components/ApiKeysLoadingState'
@@ -151,62 +150,13 @@ export function ApiKeysPage() {
       </div>
 
       {editingItem ? (
-        <div className="dialog-backdrop" role="presentation">
-          <div
-            className="dialog"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="rename-key-title"
-          >
-            <div className="dialog__header">
-              <div>
-                <h3 id="rename-key-title" className="dialog__title">
-                  Edit
-                </h3>
-                <p className="dialog__hint">Update the name of this API key.</p>
-              </div>
-
-              <button
-                type="button"
-                className="dialog__close"
-                aria-label="Close dialog"
-                onClick={() => setEditingItem(null)}
-              >
-                <CloseRounded fontSize="small" />
-              </button>
-            </div>
-
-            <div className="dialog__body">
-              <label className="dialog__label">
-                Name
-                <input
-                  autoFocus
-                  className="dialog__input"
-                  value={draftName}
-                  onChange={(event) => setDraftName(event.target.value)}
-                />
-              </label>
-            </div>
-
-            <div className="dialog__footer">
-              <button
-                type="button"
-                className="dialog__action dialog__action--secondary"
-                onClick={() => setEditingItem(null)}
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                className="dialog__action dialog__action--primary"
-                onClick={() => void handleSubmitEdit()}
-                disabled={isMutating || !draftName.trim()}
-              >
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
+        <ApiKeyEditDialog
+          draftName={draftName}
+          isSaving={isMutating}
+          onChangeDraftName={setDraftName}
+          onClose={() => setEditingItem(null)}
+          onSave={() => void handleSubmitEdit()}
+        />
       ) : null}
     </AppShell>
   )

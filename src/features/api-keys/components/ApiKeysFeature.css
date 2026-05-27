@@ -1,7 +1,6 @@
 .card__trigger,
 .table-actions__trigger,
-.menu__item,
-.dialog__close {
+.menu__item {
   appearance: none;
   border: 0;
   padding: 0;
