@@ -4,7 +4,6 @@ import CreditCardRounded from '@mui/icons-material/CreditCardRounded'
 import DatasetRounded from '@mui/icons-material/DatasetRounded'
 import KeyRounded from '@mui/icons-material/KeyRounded'
 import MenuBookRounded from '@mui/icons-material/MenuBookRounded'
-import MoreVertRounded from '@mui/icons-material/MoreVertRounded'
 import PaidRounded from '@mui/icons-material/PaidRounded'
 import SettingsRounded from '@mui/icons-material/SettingsRounded'
 import SportsEsportsRounded from '@mui/icons-material/SportsEsportsRounded'
@@ -127,13 +126,6 @@ export function AppShell({ children }: AppShellProps) {
 
           <div className="mobile-header__main">
             <h1 className="mobile-header__page">API keys</h1>
-            <button
-              type="button"
-              className="mobile-header__button"
-              aria-label="More options"
-            >
-              <MoreVertRounded />
-            </button>
           </div>
         </header>
 

@@ -221,7 +221,6 @@
 .page-surface {
   border: 1px solid #343434;
   border-radius: 16px;
-  overflow: hidden;
 }
 
 .table-wrap {
@@ -495,13 +494,13 @@
 
   .mobile-header {
     display: grid;
-    gap: 12px;
+    gap: 8px;
     padding: 12px 16px 0;
   }
 
   .mobile-statusbar__time {
     color: #ffffff;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
   }
 
@@ -514,8 +513,9 @@
   .mobile-header__page {
     margin: 0;
     color: #f6f6f6;
-    font-size: 1.05rem;
+    font-size: 1.9rem;
     font-weight: 700;
+    line-height: 1.1;
   }
 
   .mobile-header__button {
@@ -525,7 +525,7 @@
   }
 
   .app-shell__content {
-    padding: 10px 16px 122px;
+    padding: 16px 16px 122px;
   }
 
   .page {
@@ -619,15 +619,15 @@
 
   .mobile-create {
     position: fixed;
-    right: 16px;
-    bottom: 114px;
+    right: 15px;
+    bottom: 116px;
     z-index: 4;
     display: inline-flex;
     width: 44px;
     height: 44px;
     justify-content: center;
     padding: 0;
-    border-radius: 14px;
+    border-radius: 15px;
   }
 
   .mobile-nav {
