@@ -60,7 +60,6 @@ export function ApiKeysTable({
             <tr
               key={item.id}
               tabIndex={0}
-              role="button"
               className="api-table__row"
               aria-selected={selectedKeyId === item.id}
               onClick={() => onSelect(item.id)}

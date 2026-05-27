@@ -32,25 +32,27 @@ export function ApiKeyCardList({
 
         return (
           <article key={item.id} className="card" data-selected={isSelected}>
-            <button
-              type="button"
-              className="card__trigger"
-              onClick={() => onSelect(item.id)}
-            >
-              <div className="card__header">
-                <div className="card__title-row">
-                  <strong className="card__title">
-                    {item.name} {item.maskedKey}
-                  </strong>
-                  {item.status === 'expired' ? (
-                    <ApiKeyStatusBadge status={item.status} />
-                  ) : null}
-                </div>
+            <div className="card__row">
+              <button
+                type="button"
+                className="card__trigger"
+                onClick={() => onSelect(item.id)}
+              >
+                <div className="card__header">
+                  <div className="card__title-row">
+                    <strong className="card__title">
+                      {item.name} {item.maskedKey}
+                    </strong>
+                    {item.status === 'expired' && (
+                      <ApiKeyStatusBadge status={item.status} />
+                    )}
+                  </div>
 
-                <span className="card__subtitle">
-                  {formatMobileSummary(item.expiresAt, item.lastUsedAt)}
-                </span>
-              </div>
+                  <span className="card__subtitle">
+                    {formatMobileSummary(item.expiresAt, item.lastUsedAt)}
+                  </span>
+                </div>
+              </button>
               <ApiKeyActionsMenu
                 itemName={item.name}
                 itemStatus={item.status}
@@ -58,7 +60,7 @@ export function ApiKeyCardList({
                 onToggleStatus={() => onToggleStatus(item)}
                 onDelete={() => onDelete(item)}
               />
-            </button>
+            </div>
           </article>
         )
       })}

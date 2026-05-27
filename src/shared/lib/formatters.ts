@@ -5,10 +5,10 @@ export function formatRelativeDate(input: string | null): string {
 
   const target = new Date(input)
   const now = new Date()
-  const diffInHours = Math.round(
+  const diffInHours = Math.floor(
     (now.getTime() - target.getTime()) / (1000 * 60 * 60),
   )
-  const diffInDays = Math.round(
+  const diffInDays = Math.floor(
     (now.getTime() - target.getTime()) / (1000 * 60 * 60 * 24),
   )
 
