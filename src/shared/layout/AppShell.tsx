@@ -1,7 +1,7 @@
 import AccountCircleRounded from '@mui/icons-material/AccountCircleRounded'
 import ArticleRounded from '@mui/icons-material/ArticleRounded'
 import CreditCardRounded from '@mui/icons-material/CreditCardRounded'
-import DatasetRounded from '@mui/icons-material/DatasetRounded'
+import LayersIcon from '@mui/icons-material/Layers';
 import KeyRounded from '@mui/icons-material/KeyRounded'
 import MenuBookRounded from '@mui/icons-material/MenuBookRounded'
 import PaidRounded from '@mui/icons-material/PaidRounded'
@@ -15,7 +15,7 @@ type AppShellProps = {
 }
 
 const primaryNav = [
-  { label: 'Models', icon: DatasetRounded },
+  { label: 'Models', icon: LayersIcon },
   { label: 'API keys', icon: KeyRounded, current: true },
   { label: 'Usage', icon: StackedBarChartRounded },
   { label: 'Billing', icon: CreditCardRounded },
@@ -30,7 +30,7 @@ const systemNav = [
 ]
 
 const mobileNav = [
-  { label: 'Models', icon: DatasetRounded },
+  { label: 'Models', icon: LayersIcon },
   { label: 'API keys', icon: KeyRounded, current: true },
   { label: 'Usage', icon: StackedBarChartRounded },
   { label: 'Billing', icon: CreditCardRounded },
