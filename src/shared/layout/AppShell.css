@@ -217,9 +217,6 @@
 
 .app-shell[data-sidebar-collapsed='true'] .app-sidebar__link {
   width: 44px;
-  min-height: 44px;
-  padding: 0;
-  justify-content: center;
 }
 
 .app-shell[data-sidebar-collapsed='true'] .app-sidebar__link-icon {
