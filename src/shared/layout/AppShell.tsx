@@ -8,9 +8,6 @@ import PaidRounded from '@mui/icons-material/PaidRounded'
 import SettingsRounded from '@mui/icons-material/SettingsRounded'
 import SportsEsportsRounded from '@mui/icons-material/SportsEsportsRounded'
 import StackedBarChartRounded from '@mui/icons-material/StackedBarChartRounded'
-import WifiRounded from '@mui/icons-material/WifiRounded'
-import SignalCellularAltRounded from '@mui/icons-material/SignalCellularAltRounded'
-import BatteryStdRounded from '@mui/icons-material/BatteryStdRounded'
 import type { ReactNode } from 'react'
 
 type AppShellProps = {
@@ -115,15 +112,6 @@ export function AppShell({ children }: AppShellProps) {
         </header>
 
         <header className="mobile-header">
-          <div className="mobile-statusbar" aria-hidden="true">
-            <span className="mobile-statusbar__time">9:41</span>
-            <div className="mobile-statusbar__icons">
-              <SignalCellularAltRounded sx={{ fontSize: 14 }} />
-              <WifiRounded sx={{ fontSize: 14 }} />
-              <BatteryStdRounded sx={{ fontSize: 16 }} />
-            </div>
-          </div>
-
           <div className="mobile-header__main">
             <h1 className="mobile-header__page">API keys</h1>
           </div>
@@ -146,7 +134,6 @@ export function AppShell({ children }: AppShellProps) {
               {label === 'Billing' ? <span className="mobile-nav__badge">8</span> : null}
             </button>
           ))}
-          <div className="mobile-home-indicator" aria-hidden="true"></div>
         </nav>
       </div>
     </div>
