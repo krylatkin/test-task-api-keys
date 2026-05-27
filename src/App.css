@@ -101,7 +101,7 @@
 .app-sidebar__label {
   padding: 0 10px 8px;
   color: #8f8f8f;
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 500;
 }
 
@@ -114,7 +114,7 @@
   padding: 10px 12px;
   border-radius: 16px;
   color: #f1f1f1;
-  font-size: 1rem;
+  font-size: 0.92rem;
   justify-content: flex-start;
 }
 
@@ -154,7 +154,7 @@
   border-radius: 18px;
   background: #2a2a2a;
   color: #f2f2f2;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
 }
 
 .desktop-pill--avatar {
@@ -188,14 +188,16 @@
 .page-header__title {
   margin: 0;
   color: #f7f7f7;
-  font-size: 2rem;
+  font-size: 1.82rem;
   font-weight: 700;
+  line-height: 1.08;
 }
 
 .page-header__description {
   margin: 8px 0 0;
   color: #9a9a9a;
-  font-size: 0.92rem;
+  font-size: 0.84rem;
+  line-height: 1.35;
 }
 
 .page-header__primary-action,
@@ -206,10 +208,11 @@
   justify-content: center;
   gap: 8px;
   padding: 0 18px;
-  height: 46px;
+  height: 40px;
   border-radius: 16px;
   background: #5562f6;
   color: #f8f8ff;
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
@@ -235,7 +238,7 @@
   padding: 15px 18px;
   text-align: left;
   color: #b5b5b5;
-  font-size: 0.92rem;
+  font-size: 0.84rem;
   font-weight: 500;
   border-bottom: 1px solid #303030;
 }
@@ -243,7 +246,8 @@
 .api-table tbody td {
   padding: 17px 18px;
   color: #f2f2f2;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  line-height: 1.25;
   border-bottom: 1px solid #303030;
 }
 
@@ -276,10 +280,10 @@
   align-items: center;
   justify-content: center;
   min-width: 52px;
-  height: 29px;
-  padding: 0 12px;
+  height: 27px;
+  padding: 0 11px;
   border-radius: 999px;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 500;
 }
 
@@ -330,7 +334,7 @@
   border-radius: 12px;
   color: #f2f2f2;
   text-align: left;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
 }
 
 .menu__item:hover,
