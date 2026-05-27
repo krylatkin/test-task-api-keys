@@ -1,0 +1,254 @@
+.card__trigger,
+.table-actions__trigger,
+.menu__item,
+.dialog__close {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  line-height: 1;
+  box-sizing: border-box;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
+.table-wrap {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.api-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.api-table thead th {
+  padding: 15px 18px;
+  border-bottom: 1px solid #303030;
+  color: #b5b5b5;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+
+.api-table tbody td {
+  padding: 17px 18px;
+  border-bottom: 1px solid #303030;
+  color: #f2f2f2;
+  white-space: nowrap;
+  font-size: 0.88rem;
+  line-height: 1.25;
+}
+
+.api-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.api-table__row {
+  cursor: pointer;
+  outline: none;
+}
+
+.api-table__row:hover td,
+.api-table__row[aria-selected='true'] td {
+  background: #191919;
+}
+
+.api-table__name,
+.api-table__key,
+.api-table__muted {
+  color: #f2f2f2;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  height: 20px;
+  padding: 0 11px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.status-badge--active {
+  background: #5562f6;
+  color: #fafaff;
+}
+
+.status-badge--expired,
+.status-badge--revoked,
+.status-badge--expiring {
+  background: #2d2d2d;
+  color: #f3f3f3;
+}
+
+.table-actions {
+  position: relative;
+}
+
+.table-actions__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  color: #f1f1f1;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: -12px;
+  z-index: 5;
+  min-width: 152px;
+  padding: 4px;
+  border: 1px solid #5d5d5d;
+  border-radius: 16px;
+  background: #2d2d2d;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+}
+
+.menu__item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: #f2f2f2;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.menu__item:hover,
+.menu__item:focus-visible {
+  background: #4a4a4a;
+}
+
+.menu__item--danger {
+  color: #f2f2f2;
+}
+
+.mobile-cards {
+  display: none;
+}
+
+@media (max-width: 1360px) {
+  .api-table {
+    min-width: 900px;
+  }
+
+  .api-table thead th,
+  .api-table tbody td {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 1220px) {
+  .api-table {
+    min-width: 700px;
+  }
+
+  .api-table thead th,
+  .api-table tbody td {
+    padding-inline: 14px;
+  }
+}
+
+@media (min-width: 961px) and (max-width: 1220px) {
+  .table-wrap .api-table thead th,
+  .table-wrap .api-table tbody td {
+    padding-inline: 13px;
+  }
+}
+
+@media (max-width: 960px) {
+  .table-wrap {
+    display: none;
+  }
+
+  .mobile-cards {
+    display: grid;
+    gap: 12px;
+  }
+
+  .card {
+    border: 1px solid #2e2e2e;
+    border-radius: 14px;
+    background: #1c1c1c;
+  }
+
+  .card[data-selected='true'] {
+    border-color: #4a4a4a;
+  }
+
+  .card__trigger {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 14px;
+    gap: 10px;
+    text-align: left;
+  }
+
+  .card__header {
+    display: grid;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .card__title-row {
+    display: flex;
+    align-items: flex-start;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .card__title {
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    color: #f4f4f4;
+    font-size: 0.96rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .card__subtitle {
+    color: #a6a6a6;
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .card .table-actions {
+    flex-shrink: 0;
+  }
+
+  .card .table-actions__trigger {
+    width: 22px;
+    height: 22px;
+  }
+
+  .card .menu {
+    top: 24px;
+    right: -4px;
+  }
+
+  .status-badge--expired {
+    background: #bd6464;
+    color: #fff;
+  }
+
+  .card .status-badge {
+    min-width: 0;
+    height: 25px;
+    flex-shrink: 0;
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,355 @@
+.app-shell {
+  --sidebar-width: clamp(220px, 22vw, 340px);
+  --sidebar-padding-inline: 12px;
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  min-height: calc(100svh - 68px);
+  border: 1px solid #2a2a2a;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #141414;
+  transition: grid-template-columns 180ms ease;
+}
+
+.app-shell[data-sidebar-collapsed='true'] {
+  --sidebar-width: 84px;
+  --sidebar-padding-inline: 10px;
+}
+
+.app-sidebar,
+.app-shell__viewport,
+.mobile-nav {
+  background: #141414;
+}
+
+.app-sidebar {
+  border-right: 1px solid #2d2d2d;
+  padding: 18px var(--sidebar-padding-inline) 24px;
+  transition: padding 180ms ease;
+}
+
+.app-sidebar__section {
+  display: grid;
+  gap: 24px;
+}
+
+.app-sidebar__section--top {
+  align-content: start;
+}
+
+.app-sidebar__brand-row,
+.desktop-topbar,
+.desktop-topbar__actions,
+.mobile-header__main {
+  display: flex;
+  align-items: center;
+}
+
+.app-sidebar__brand-row,
+.desktop-topbar,
+.mobile-header__main {
+  justify-content: space-between;
+}
+
+.app-sidebar__brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  min-width: 0;
+  color: #f6f6f6;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.app-sidebar__brand-wordmark {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition:
+    opacity 120ms ease,
+    width 120ms ease,
+    margin 120ms ease;
+}
+
+.app-sidebar__collapse,
+.app-sidebar__link,
+.mobile-header__button,
+.mobile-nav__link {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  line-height: 1;
+  box-sizing: border-box;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
+.app-sidebar__collapse {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.app-sidebar__nav {
+  display: grid;
+  gap: 4px;
+}
+
+.app-sidebar__label {
+  padding: 0 10px 8px;
+  color: #8f8f8f;
+  font-size: 0.76rem;
+  font-weight: 500;
+}
+
+.app-sidebar__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  color: #f1f1f1;
+  font-size: 0.92rem;
+}
+
+.app-sidebar__link-text {
+  white-space: nowrap;
+  transition:
+    opacity 120ms ease,
+    width 120ms ease,
+    margin 120ms ease;
+}
+
+.app-sidebar__link[aria-current='page'] {
+  background: #2a2a2a;
+}
+
+.app-sidebar__link-icon,
+.mobile-nav__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.app-shell__viewport {
+  min-width: 0;
+}
+
+.desktop-topbar {
+  min-height: 84px;
+  padding: 0 20px;
+  border-bottom: 1px solid #2d2d2d;
+}
+
+.desktop-topbar__actions {
+  gap: 12px;
+}
+
+.desktop-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 18px;
+  background: #2a2a2a;
+  color: #f2f2f2;
+  font-size: 0.88rem;
+}
+
+.desktop-pill--avatar {
+  width: 48px;
+  min-width: 48px;
+  padding: 0;
+}
+
+.mobile-header,
+.mobile-nav {
+  display: none;
+}
+
+.app-shell__content {
+  padding: 36px 34px 32px;
+}
+
+.app-shell[data-sidebar-collapsed='true'] .app-sidebar__brand-row {
+  position: relative;
+  min-height: 34px;
+  justify-content: center;
+}
+
+.app-shell[data-sidebar-collapsed='true'] .app-sidebar__brand-wordmark,
+.app-shell[data-sidebar-collapsed='true'] .app-sidebar__link-text {
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.app-shell[data-sidebar-collapsed='true'] .app-sidebar__label {
+  width: 0;
+  height: 0;
+  padding: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.app-shell[data-sidebar-collapsed='true'] .app-sidebar__collapse {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.app-shell[data-sidebar-collapsed='true'] .app-sidebar__nav {
+  justify-items: center;
+}
+
+.app-shell[data-sidebar-collapsed='true'] .app-sidebar__link {
+  width: 44px;
+  min-height: 44px;
+  padding: 0;
+  justify-content: center;
+}
+
+.app-shell[data-sidebar-collapsed='true'] .app-sidebar__link-icon {
+  margin: 0;
+}
+
+@media (max-width: 1360px) {
+  .app-shell {
+    --sidebar-width: clamp(188px, 18vw, 260px);
+  }
+
+  .app-shell__content {
+    padding: 28px 24px 24px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .desktop-topbar {
+    padding-inline: 16px;
+  }
+
+  .app-shell__content {
+    padding: 24px 20px 22px;
+  }
+}
+
+@media (max-width: 1220px) {
+  .app-shell {
+    --sidebar-width: clamp(164px, 16vw, 220px);
+  }
+
+  .desktop-topbar {
+    min-height: 72px;
+  }
+}
+
+@media (max-width: 960px) {
+  .app-shell {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 100svh;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .app-sidebar,
+  .desktop-topbar {
+    display: none;
+  }
+
+  .mobile-header {
+    display: grid;
+    gap: 0;
+    padding: 18px 16px 0;
+  }
+
+  .mobile-header__page {
+    margin: 0;
+    color: #f6f6f6;
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .mobile-header__button {
+    width: 24px;
+    height: 24px;
+    color: #fff;
+  }
+
+  .app-shell__content {
+    padding: 16px 16px 122px;
+  }
+
+  .mobile-nav {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: start;
+    padding: 12px 12px 18px;
+    border-top: 1px solid #2c2c2c;
+  }
+
+  .mobile-nav__link {
+    position: relative;
+    display: grid;
+    align-content: start;
+    justify-items: center;
+    min-width: 0;
+    padding-top: 0;
+    gap: 6px;
+    grid-template-rows: 36px auto;
+    color: #b1b1b1;
+    font-size: 0.7rem;
+  }
+
+  .mobile-nav__link[aria-current='page'] {
+    color: #f5f5f5;
+  }
+
+  .mobile-nav__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-nav__link[aria-current='page'] .mobile-nav__icon {
+    background: #2d2d2d;
+  }
+
+  .mobile-nav__badge {
+    position: absolute;
+    top: -1px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 999px;
+    background: #c56e6e;
+    color: #fff;
+    font-size: 0.68rem;
+  }
+
+  .mobile-nav__text {
+    white-space: nowrap;
+  }
+}
