@@ -50,7 +50,7 @@ export function useApiKeys(): UseApiKeysResult {
       }
     }
 
-    void loadInitialKeys()
+    loadInitialKeys()
 
     return () => {
       isCancelled = true

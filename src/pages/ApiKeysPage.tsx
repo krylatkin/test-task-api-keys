@@ -67,6 +67,10 @@ export function ApiKeysPage() {
     setDraftName(item.name)
   }
 
+  function handleCloseEdit() {
+    setEditingItem(null)
+  }
+
   async function handleSubmitEdit() {
     if (!editingItem || !draftName.trim()) {
       return
@@ -94,7 +98,7 @@ export function ApiKeysPage() {
           <button
             type="button"
             className="page-header__primary-action"
-            onClick={() => void handleCreateKey()}
+            onClick={handleCreateKey}
             disabled={isMutating}
           >
             <AddRounded sx={{ fontSize: 18 }} />
@@ -106,14 +110,14 @@ export function ApiKeysPage() {
           {error ? (
             <ApiKeysErrorState
               message={error}
-              onRetry={() => void refresh()}
+              onRetry={refresh}
             />
           ) : isLoading ? (
             <ApiKeysLoadingState />
           ) : apiKeys.length === 0 && !isLoading ? (
             <ApiKeysEmptyState
               disabled={isMutating}
-              onCreate={() => void handleCreateKey()}
+              onCreate={handleCreateKey}
             />
           ) : (
             <>
@@ -122,8 +126,8 @@ export function ApiKeysPage() {
                 selectedKeyId={selectedKeyId}
                 onSelect={setSelectedKeyIdOverride}
                 onEdit={handleEditKey}
-                onToggleStatus={(item) => void handleToggleKeyStatus(item)}
-                onDelete={(item) => void handleDeleteKey(item)}
+                onToggleStatus={handleToggleKeyStatus}
+                onDelete={handleDeleteKey}
               />
 
               <ApiKeyCardList
@@ -131,8 +135,8 @@ export function ApiKeysPage() {
                 selectedKeyId={selectedKeyId}
                 onSelect={setSelectedKeyIdOverride}
                 onEdit={handleEditKey}
-                onToggleStatus={(item) => void handleToggleKeyStatus(item)}
-                onDelete={(item) => void handleDeleteKey(item)}
+                onToggleStatus={handleToggleKeyStatus}
+                onDelete={handleDeleteKey}
               />
             </>
           )}
@@ -141,7 +145,7 @@ export function ApiKeysPage() {
         <button
           type="button"
           className="page-header__primary-action mobile-create"
-          onClick={() => void handleCreateKey()}
+          onClick={handleCreateKey}
           disabled={isMutating}
         >
           <AddRounded />
@@ -154,8 +158,8 @@ export function ApiKeysPage() {
           draftName={draftName}
           isSaving={isMutating}
           onChangeDraftName={setDraftName}
-          onClose={() => setEditingItem(null)}
-          onSave={() => void handleSubmitEdit()}
+          onClose={handleCloseEdit}
+          onSave={handleSubmitEdit}
         />
       ) : null}
     </AppShell>
