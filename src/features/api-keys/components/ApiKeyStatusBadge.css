@@ -1,0 +1,38 @@
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  height: 20px;
+  padding: 0 11px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.status-badge--active {
+  background: #5562f6;
+  color: #fafaff;
+}
+
+.status-badge--expired,
+.status-badge--revoked,
+.status-badge--expiring {
+  background: #2d2d2d;
+  color: #f3f3f3;
+}
+
+@media (max-width: 960px) {
+  .status-badge--expired {
+    background: #bd6464;
+    color: #fff;
+  }
+
+  .card .status-badge {
+    min-width: 0;
+    height: 25px;
+    flex-shrink: 0;
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
+}

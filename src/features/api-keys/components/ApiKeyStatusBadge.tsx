@@ -1,3 +1,4 @@
+import './ApiKeyStatusBadge.css'
 import type { ApiKeyStatus } from '../model/apiKeys.types'
 
 const STATUS_LABELS: Record<ApiKeyStatus, string> = {
