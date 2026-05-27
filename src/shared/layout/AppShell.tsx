@@ -1,7 +1,8 @@
+import './AppShell.css'
 import AccountCircleRounded from '@mui/icons-material/AccountCircleRounded'
 import ArticleRounded from '@mui/icons-material/ArticleRounded'
 import CreditCardRounded from '@mui/icons-material/CreditCardRounded'
-import LayersIcon from '@mui/icons-material/Layers';
+import LayersIcon from '@mui/icons-material/Layers'
 import KeyRounded from '@mui/icons-material/KeyRounded'
 import MenuBookRounded from '@mui/icons-material/MenuBookRounded'
 import PaidRounded from '@mui/icons-material/PaidRounded'
