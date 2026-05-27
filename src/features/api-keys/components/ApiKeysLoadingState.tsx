@@ -7,6 +7,7 @@ export function ApiKeysLoadingState() {
         <div className="loading-row"></div>
         <div className="loading-row"></div>
         <div className="loading-row"></div>
+        <div className="loading-row"></div>
         <span className="inline-message">Syncing mock API keys...</span>
       </div>
     </div>
