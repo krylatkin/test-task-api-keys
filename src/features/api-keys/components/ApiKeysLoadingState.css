@@ -1,0 +1,35 @@
+.loading-state {
+  display: grid;
+  min-height: 240px;
+  padding: 24px;
+  place-items: center;
+  text-align: center;
+}
+
+.loading-state__stack {
+  display: grid;
+  width: min(100%, 360px);
+  gap: 14px;
+}
+
+.loading-row {
+  height: 64px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #1e1e1e, #262626, #1e1e1e);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+.inline-message {
+  color: #a3a3a3;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -100% 0;
+  }
+}

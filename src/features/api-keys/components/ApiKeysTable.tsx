@@ -11,7 +11,6 @@ import { ApiKeyStatusBadge } from './ApiKeyStatusBadge'
 
 type ApiKeysTableProps = {
   apiKeys: ApiKeyItem[]
-  isLoading: boolean
   selectedKeyId: string | null
   onSelect: (id: string) => void
   onEdit: (item: ApiKeyItem) => void
@@ -21,26 +20,12 @@ type ApiKeysTableProps = {
 
 export function ApiKeysTable({
   apiKeys,
-  isLoading,
   selectedKeyId,
   onSelect,
   onEdit,
   onToggleStatus,
   onDelete,
 }: ApiKeysTableProps) {
-  if (isLoading) {
-    return (
-      <div className="loading-state" aria-live="polite" aria-busy="true">
-        <div className="loading-state__stack">
-          <div className="loading-row"></div>
-          <div className="loading-row"></div>
-          <div className="loading-row"></div>
-          <span className="inline-message">Syncing mock API keys...</span>
-        </div>
-      </div>
-    )
-  }
-
   if (apiKeys.length === 0) {
     return null
   }

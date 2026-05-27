@@ -76,7 +76,7 @@ function buildMaskedKey(): string {
 
 export const mockApiKeysRepository: ApiKeysRepository = {
   async list() {
-    await delay(220)
+    await delay(2200)
 
     return store.map(cloneItem)
   },

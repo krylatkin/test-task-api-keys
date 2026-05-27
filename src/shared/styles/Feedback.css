@@ -1,4 +1,3 @@
-.loading-state,
 .error-state,
 .empty-state {
   display: grid;
@@ -8,22 +7,12 @@
   text-align: center;
 }
 
-.loading-state__stack,
 .empty-state__stack {
   display: grid;
   width: min(100%, 360px);
   gap: 14px;
 }
 
-.loading-row {
-  height: 64px;
-  border-radius: 14px;
-  background: linear-gradient(90deg, #1e1e1e, #262626, #1e1e1e);
-  background-size: 200% 100%;
-  animation: shimmer 1.4s linear infinite;
-}
-
-.inline-message,
 .error-state__copy,
 .empty-state__copy,
 .dialog__hint,
@@ -115,14 +104,4 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-@keyframes shimmer {
-  from {
-    background-position: 100% 0;
-  }
-
-  to {
-    background-position: -100% 0;
-  }
 }

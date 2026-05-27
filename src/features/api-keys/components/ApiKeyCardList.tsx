@@ -6,7 +6,6 @@ import { ApiKeyStatusBadge } from './ApiKeyStatusBadge'
 
 type ApiKeyCardListProps = {
   apiKeys: ApiKeyItem[]
-  isLoading: boolean
   selectedKeyId: string | null
   onSelect: (id: string) => void
   onEdit: (item: ApiKeyItem) => void
@@ -16,25 +15,12 @@ type ApiKeyCardListProps = {
 
 export function ApiKeyCardList({
   apiKeys,
-  isLoading,
   selectedKeyId,
   onSelect,
   onEdit,
   onToggleStatus,
   onDelete,
 }: ApiKeyCardListProps) {
-  if (isLoading) {
-    return (
-      <div className="loading-state" aria-live="polite" aria-busy="true">
-        <div className="loading-state__stack">
-          <div className="loading-row loading-row--compact"></div>
-          <div className="loading-row loading-row--compact"></div>
-          <div className="loading-row loading-row--compact"></div>
-        </div>
-      </div>
-    )
-  }
-
   if (apiKeys.length === 0) {
     return null
   }

@@ -4,6 +4,7 @@ import AddRounded from '@mui/icons-material/AddRounded'
 import CloseRounded from '@mui/icons-material/CloseRounded'
 import { useMemo, useState } from 'react'
 import { ApiKeyCardList } from '../features/api-keys/components/ApiKeyCardList'
+import { ApiKeysLoadingState } from '../features/api-keys/components/ApiKeysLoadingState'
 import { ApiKeysTable } from '../features/api-keys/components/ApiKeysTable'
 import { useApiKeys } from '../features/api-keys/hooks/useApiKeys'
 import type { ApiKeyItem } from '../features/api-keys/model/apiKeys.types'
@@ -115,6 +116,8 @@ export function ApiKeysPage() {
                 Retry
               </button>
             </div>
+          ) : isLoading ? (
+            <ApiKeysLoadingState />
           ) : apiKeys.length === 0 && !isLoading ? (
             <div className="empty-state">
               <div className="empty-state__stack">
@@ -139,7 +142,6 @@ export function ApiKeysPage() {
             <>
               <ApiKeysTable
                 apiKeys={apiKeys}
-                isLoading={isLoading}
                 selectedKeyId={selectedKeyId}
                 onSelect={setSelectedKeyIdOverride}
                 onEdit={handleEditKey}
@@ -149,7 +151,6 @@ export function ApiKeysPage() {
 
               <ApiKeyCardList
                 apiKeys={apiKeys}
-                isLoading={isLoading}
                 selectedKeyId={selectedKeyId}
                 onSelect={setSelectedKeyIdOverride}
                 onEdit={handleEditKey}
