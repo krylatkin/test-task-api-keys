@@ -163,7 +163,7 @@
 
   .card__row {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
     padding: 13px 14px;
   }
@@ -187,10 +187,10 @@
     display: flex;
     align-items: center;
     min-width: 0;
-    gap: 10px;
   }
 
   .card__title {
+    display: block;
     min-width: 0;
     flex: 1 1 auto;
     overflow: hidden;
@@ -198,6 +198,22 @@
     font-size: 0.95rem;
     font-weight: 500;
     line-height: 1.3;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .card__title-name,
+  .card__title-mask {
+    display: inline;
+  }
+
+  .card__title-name {
+    color: #f4f4f4;
+  }
+
+  .card__title-mask {
+    margin-left: 6px;
+    color: #9c9c9c;
   }
 
   .card__subtitle {
@@ -206,10 +222,22 @@
     line-height: 1.35;
   }
 
+  .card__actions {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .card__actions--with-badge {
+    min-width: 118px;
+  }
+
   .card .table-actions {
     flex-shrink: 0;
-    margin-top: 1px;
-    align-self: flex-start;
+    align-self: center;
   }
 
   .card .table-actions__trigger {

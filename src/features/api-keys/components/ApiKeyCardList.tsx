@@ -41,11 +41,9 @@ export function ApiKeyCardList({
                 <div className="card__header">
                   <div className="card__title-row">
                     <strong className="card__title">
-                      {item.name} {item.maskedKey}
+                      <span className="card__title-name">{item.name}</span>
+                      <span className="card__title-mask">{item.maskedKey}</span>
                     </strong>
-                    {item.status === 'expired' && (
-                      <ApiKeyStatusBadge status={item.status} />
-                    )}
                   </div>
 
                   <span className="card__subtitle">
@@ -53,13 +51,25 @@ export function ApiKeyCardList({
                   </span>
                 </div>
               </button>
-              <ApiKeyActionsMenu
-                itemName={item.name}
-                itemStatus={item.status}
-                onEdit={() => onEdit(item)}
-                onToggleStatus={() => onToggleStatus(item)}
-                onDelete={() => onDelete(item)}
-              />
+              <div
+                className={
+                  item.status === 'expired'
+                    ? 'card__actions card__actions--with-badge'
+                    : 'card__actions'
+                }
+              >
+                {item.status === 'expired' && (
+                  <ApiKeyStatusBadge status={item.status} />
+                )}
+
+                <ApiKeyActionsMenu
+                  itemName={item.name}
+                  itemStatus={item.status}
+                  onEdit={() => onEdit(item)}
+                  onToggleStatus={() => onToggleStatus(item)}
+                  onDelete={() => onDelete(item)}
+                />
+              </div>
             </div>
           </article>
         )
