@@ -1,5 +1,6 @@
-import './Badge.css'
 import type { HTMLAttributes } from 'react'
+import { cn } from '../../lib/cn'
+import './Badge.css'
 
 type BadgeVariant = 'neutral' | 'accent' | 'danger'
 type BadgeSize = 'sm' | 'md'
@@ -7,10 +8,6 @@ type BadgeSize = 'sm' | 'md'
 type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
   variant?: BadgeVariant
   size?: BadgeSize
-}
-
-function joinClassNames(...values: Array<string | false | null | undefined>) {
-  return values.filter(Boolean).join(' ')
 }
 
 export function Badge({
@@ -22,7 +19,7 @@ export function Badge({
 }: BadgeProps) {
   return (
     <span
-      className={joinClassNames(
+      className={cn(
         'badge',
         `badge--${variant}`,
         `badge--${size}`,

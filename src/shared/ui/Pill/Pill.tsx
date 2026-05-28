@@ -1,5 +1,6 @@
-import './Pill.css'
 import type { HTMLAttributes } from 'react'
+import { cn } from '../../lib/cn'
+import './Pill.css'
 
 type PillVariant = 'neutral' | 'accent'
 type PillSize = 'md' | 'lg'
@@ -9,10 +10,6 @@ type PillProps = HTMLAttributes<HTMLSpanElement> & {
   variant?: PillVariant
   size?: PillSize
   shape?: PillShape
-}
-
-function joinClassNames(...values: Array<string | false | null | undefined>) {
-  return values.filter(Boolean).join(' ')
 }
 
 export function Pill({
@@ -25,7 +22,7 @@ export function Pill({
 }: PillProps) {
   return (
     <span
-      className={joinClassNames(
+      className={cn(
         'pill',
         `pill--${variant}`,
         `pill--${size}`,

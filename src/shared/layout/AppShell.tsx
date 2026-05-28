@@ -117,7 +117,7 @@ export function AppShell({ children }: AppShellProps) {
           <div className="desktop-topbar__spacer"></div>
           <div className="desktop-topbar__actions">
             <Pill>$145,20</Pill>
-            <Pill className="desktop-topbar__avatar" size="lg" shape="circle">
+            <Pill className="desktop-topbar__avatar" shape="circle">
               RG
             </Pill>
           </div>
