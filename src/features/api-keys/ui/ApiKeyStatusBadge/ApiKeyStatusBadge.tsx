@@ -1,6 +1,6 @@
-import type { ApiKeyStatus } from '../model/apiKeys.types'
-import { Badge } from '@/shared/ui'
 import './ApiKeyStatusBadge.css'
+import { Badge } from '@/shared/ui'
+import type { ApiKeyStatus } from '../../model/apiKeys.types'
 
 const STATUS_LABELS: Record<ApiKeyStatus, string> = {
   active: 'Active',

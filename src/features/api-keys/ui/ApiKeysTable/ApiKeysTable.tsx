@@ -1,13 +1,13 @@
-import './ApiKeysFeature.css'
+import './ApiKeysTable.css'
 import {
   formatCalendarDate,
   formatExpiry,
   formatRelativeDate,
 } from '@/shared/lib'
 import type { KeyboardEvent } from 'react'
-import type { ApiKeyItem } from '../model/apiKeys.types'
-import { ApiKeyActionsMenu } from './ApiKeyActionsMenu'
-import { ApiKeyStatusBadge } from './ApiKeyStatusBadge'
+import type { ApiKeyItem } from '../../model/apiKeys.types'
+import { ApiKeyActionsMenu } from '../ApiKeyActionsMenu'
+import { ApiKeyStatusBadge } from '../ApiKeyStatusBadge'
 
 type ApiKeysTableProps = {
   apiKeys: ApiKeyItem[]

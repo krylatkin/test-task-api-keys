@@ -1,8 +1,8 @@
-import './ApiKeysFeature.css'
+import './ApiKeyCardList.css'
 import { formatMobileSummary } from '@/shared/lib'
-import type { ApiKeyItem } from '../model/apiKeys.types'
-import { ApiKeyActionsMenu } from './ApiKeyActionsMenu'
-import { ApiKeyStatusBadge } from './ApiKeyStatusBadge'
+import type { ApiKeyItem } from '../../model/apiKeys.types'
+import { ApiKeyActionsMenu } from '../ApiKeyActionsMenu'
+import { ApiKeyStatusBadge } from '../ApiKeyStatusBadge'
 
 type ApiKeyCardListProps = {
   apiKeys: ApiKeyItem[]
@@ -58,9 +58,9 @@ export function ApiKeyCardList({
                     : 'card__actions'
                 }
               >
-                {item.status === 'expired' && (
+                {item.status === 'expired' ? (
                   <ApiKeyStatusBadge status={item.status} />
-                )}
+                ) : null}
 
                 <ApiKeyActionsMenu
                   itemName={item.name}

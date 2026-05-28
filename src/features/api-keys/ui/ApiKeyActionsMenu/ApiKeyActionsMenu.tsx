@@ -1,6 +1,7 @@
-import type { ApiKeyStatus } from '../model/apiKeys.types'
+import './ApiKeyActionsMenu.css'
 import MoreVertRounded from '@mui/icons-material/MoreVertRounded'
 import { useId, useState } from 'react'
+import type { ApiKeyStatus } from '../../model/apiKeys.types'
 
 type ApiKeyActionsMenuProps = {
   itemName: string

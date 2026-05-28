@@ -1,0 +1,85 @@
+.table-wrap {
+  display: block;
+  overflow-x: visible;
+  -webkit-overflow-scrolling: touch;
+}
+
+.api-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.api-table thead th {
+  padding: 14px 18px;
+  border-bottom: 1px solid #303030;
+  color: #b5b5b5;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.api-table tbody td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #303030;
+  color: #f2f2f2;
+  white-space: nowrap;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.api-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.api-table__row {
+  cursor: pointer;
+  outline: none;
+}
+
+.api-table__row:hover td,
+.api-table__row[aria-selected='true'] td {
+  background: #191919;
+}
+
+.api-table__name,
+.api-table__key,
+.api-table__muted {
+  color: #f2f2f2;
+}
+
+@media (max-width: 1360px) {
+  .api-table {
+    min-width: 900px;
+  }
+
+  .api-table thead th,
+  .api-table tbody td {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 1220px) {
+  .api-table {
+    min-width: 700px;
+  }
+
+  .api-table thead th,
+  .api-table tbody td {
+    padding-inline: 14px;
+  }
+}
+
+@media (min-width: 961px) and (max-width: 1220px) {
+  .table-wrap .api-table thead th,
+  .table-wrap .api-table tbody td {
+    padding-inline: 13px;
+  }
+}
+
+@media (max-width: 960px) {
+  .table-wrap {
+    display: none;
+  }
+}
