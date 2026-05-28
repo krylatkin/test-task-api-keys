@@ -1,1 +1,1 @@
-export { Pill } from './Pill'
+export { Pill } from './Pill';

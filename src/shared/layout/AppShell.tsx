@@ -1,20 +1,20 @@
-import './AppShell.css'
-import AccountCircleRounded from '@mui/icons-material/AccountCircleRounded'
-import ArticleRounded from '@mui/icons-material/ArticleRounded'
-import CreditCardRounded from '@mui/icons-material/CreditCardRounded'
-import LayersIcon from '@mui/icons-material/Layers'
-import KeyRounded from '@mui/icons-material/KeyRounded'
-import MenuBookRounded from '@mui/icons-material/MenuBookRounded'
-import PaidRounded from '@mui/icons-material/PaidRounded'
-import SettingsRounded from '@mui/icons-material/SettingsRounded'
-import SportsEsportsRounded from '@mui/icons-material/SportsEsportsRounded'
-import StackedBarChartRounded from '@mui/icons-material/StackedBarChartRounded'
-import { Badge, Pill } from '@/shared/ui'
-import { useState, type ReactNode } from 'react'
+import './AppShell.css';
+import AccountCircleRounded from '@mui/icons-material/AccountCircleRounded';
+import ArticleRounded from '@mui/icons-material/ArticleRounded';
+import CreditCardRounded from '@mui/icons-material/CreditCardRounded';
+import LayersIcon from '@mui/icons-material/Layers';
+import KeyRounded from '@mui/icons-material/KeyRounded';
+import MenuBookRounded from '@mui/icons-material/MenuBookRounded';
+import PaidRounded from '@mui/icons-material/PaidRounded';
+import SettingsRounded from '@mui/icons-material/SettingsRounded';
+import SportsEsportsRounded from '@mui/icons-material/SportsEsportsRounded';
+import StackedBarChartRounded from '@mui/icons-material/StackedBarChartRounded';
+import { Badge, Pill } from '@/shared/ui';
+import { useState, type ReactNode } from 'react';
 
 type AppShellProps = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
 const primaryNav = [
   { label: 'Models', icon: LayersIcon },
@@ -22,14 +22,14 @@ const primaryNav = [
   { label: 'Usage', icon: StackedBarChartRounded },
   { label: 'Billing', icon: CreditCardRounded },
   { label: 'Playground', icon: SportsEsportsRounded },
-]
+];
 
-const nodeNav = [{ label: 'Node rewards', icon: PaidRounded }]
+const nodeNav = [{ label: 'Node rewards', icon: PaidRounded }];
 
 const systemNav = [
   { label: 'Settings', icon: SettingsRounded },
   { label: 'Docs', icon: MenuBookRounded },
-]
+];
 
 const mobileNav = [
   { label: 'Models', icon: LayersIcon },
@@ -37,10 +37,10 @@ const mobileNav = [
   { label: 'Usage', icon: StackedBarChartRounded },
   { label: 'Billing', icon: CreditCardRounded },
   { label: 'Account', icon: AccountCircleRounded },
-]
+];
 
 export function AppShell({ children }: AppShellProps) {
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   return (
     <div
@@ -57,7 +57,9 @@ export function AppShell({ children }: AppShellProps) {
             <button
               type="button"
               className="app-sidebar__collapse"
-              aria-label={isSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+              aria-label={
+                isSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'
+              }
               aria-pressed={isSidebarCollapsed}
               onClick={() => setIsSidebarCollapsed((current) => !current)}
             >
@@ -152,5 +154,5 @@ export function AppShell({ children }: AppShellProps) {
         </nav>
       </div>
     </div>
-  )
+  );
 }

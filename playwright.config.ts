@@ -1,6 +1,6 @@
-import { defineConfig, devices } from '@playwright/test'
+import { defineConfig, devices } from '@playwright/test';
 
-const port = 4173
+const port = 4173;
 
 export default defineConfig({
   testDir: './tests',
@@ -34,4 +34,4 @@ export default defineConfig({
     port,
     reuseExistingServer: !process.env.CI,
   },
-})
+});

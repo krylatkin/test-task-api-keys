@@ -1,4 +1,4 @@
-import './ApiKeysLoadingState.css'
+import './ApiKeysLoadingState.css';
 
 export function ApiKeysLoadingState() {
   return (
@@ -11,5 +11,5 @@ export function ApiKeysLoadingState() {
         <span className="inline-message">Syncing mock API keys...</span>
       </div>
     </div>
-  )
+  );
 }

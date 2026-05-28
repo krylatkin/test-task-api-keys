@@ -1,9 +1,9 @@
-import './ApiKeysErrorState.css'
+import './ApiKeysErrorState.css';
 
 type ApiKeysErrorStateProps = {
-  message: string
-  onRetry: () => void
-}
+  message: string;
+  onRetry: () => void;
+};
 
 export function ApiKeysErrorState({
   message,
@@ -23,5 +23,5 @@ export function ApiKeysErrorState({
         Retry
       </button>
     </div>
-  )
+  );
 }

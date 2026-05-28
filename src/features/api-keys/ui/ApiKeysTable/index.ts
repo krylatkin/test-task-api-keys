@@ -1,1 +1,1 @@
-export { ApiKeysTable } from './ApiKeysTable'
+export { ApiKeysTable } from './ApiKeysTable';

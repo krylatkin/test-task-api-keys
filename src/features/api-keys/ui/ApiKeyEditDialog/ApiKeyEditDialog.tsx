@@ -1,13 +1,13 @@
-import './ApiKeyEditDialog.css'
-import CloseRounded from '@mui/icons-material/CloseRounded'
+import './ApiKeyEditDialog.css';
+import CloseRounded from '@mui/icons-material/CloseRounded';
 
 type ApiKeyEditDialogProps = {
-  draftName: string
-  isSaving: boolean
-  onChangeDraftName: (value: string) => void
-  onClose: () => void
-  onSave: () => void
-}
+  draftName: string;
+  isSaving: boolean;
+  onChangeDraftName: (value: string) => void;
+  onClose: () => void;
+  onSave: () => void;
+};
 
 export function ApiKeyEditDialog({
   draftName,
@@ -75,5 +75,5 @@ export function ApiKeyEditDialog({
         </div>
       </div>
     </div>
-  )
+  );
 }

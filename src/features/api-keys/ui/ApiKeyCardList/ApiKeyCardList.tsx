@@ -1,17 +1,17 @@
-import './ApiKeyCardList.css'
-import { formatMobileSummary } from '@/shared/lib'
-import type { ApiKeyItem } from '../../model/apiKeys.types'
-import { ApiKeyActionsMenu } from '../ApiKeyActionsMenu'
-import { ApiKeyStatusBadge } from '../ApiKeyStatusBadge'
+import './ApiKeyCardList.css';
+import { formatMobileSummary } from '@/shared/lib';
+import type { ApiKeyItem } from '../../model/apiKeys.types';
+import { ApiKeyActionsMenu } from '../ApiKeyActionsMenu';
+import { ApiKeyStatusBadge } from '../ApiKeyStatusBadge';
 
 type ApiKeyCardListProps = {
-  apiKeys: ApiKeyItem[]
-  selectedKeyId: string | null
-  onSelect: (id: string) => void
-  onEdit: (item: ApiKeyItem) => void
-  onToggleStatus: (item: ApiKeyItem) => void
-  onDelete: (item: ApiKeyItem) => void
-}
+  apiKeys: ApiKeyItem[];
+  selectedKeyId: string | null;
+  onSelect: (id: string) => void;
+  onEdit: (item: ApiKeyItem) => void;
+  onToggleStatus: (item: ApiKeyItem) => void;
+  onDelete: (item: ApiKeyItem) => void;
+};
 
 export function ApiKeyCardList({
   apiKeys,
@@ -22,13 +22,13 @@ export function ApiKeyCardList({
   onDelete,
 }: ApiKeyCardListProps) {
   if (apiKeys.length === 0) {
-    return null
+    return null;
   }
 
   return (
     <div className="mobile-cards">
       {apiKeys.map((item) => {
-        const isSelected = selectedKeyId === item.id
+        const isSelected = selectedKeyId === item.id;
 
         return (
           <article key={item.id} className="card" data-selected={isSelected}>
@@ -72,8 +72,8 @@ export function ApiKeyCardList({
               </div>
             </div>
           </article>
-        )
+        );
       })}
     </div>
-  )
+  );
 }

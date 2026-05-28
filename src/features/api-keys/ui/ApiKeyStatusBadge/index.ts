@@ -1,1 +1,1 @@
-export { ApiKeyStatusBadge } from './ApiKeyStatusBadge'
+export { ApiKeyStatusBadge } from './ApiKeyStatusBadge';

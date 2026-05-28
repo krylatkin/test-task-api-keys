@@ -1,5 +1,5 @@
-import './ApiKeysPage.css'
-import AddRounded from '@mui/icons-material/AddRounded'
+import './ApiKeysPage.css';
+import AddRounded from '@mui/icons-material/AddRounded';
 import {
   ApiKeyCardList,
   ApiKeyEditDialog,
@@ -9,9 +9,9 @@ import {
   ApiKeysTable,
   useApiKeys,
   type ApiKeyItem,
-} from '@/features/api-keys'
-import { useMemo, useState } from 'react'
-import { AppShell } from '@/shared/layout'
+} from '@/features/api-keys';
+import { useMemo, useState } from 'react';
+import { AppShell } from '@/shared/layout';
 
 export function ApiKeysPage() {
   const {
@@ -24,65 +24,65 @@ export function ApiKeysPage() {
     renameKey,
     toggleKeyStatus,
     deleteKey,
-  } = useApiKeys()
-  const [selectedKeyIdOverride, setSelectedKeyIdOverride] = useState<string | null>(
-    null,
-  )
-  const [editingItem, setEditingItem] = useState<ApiKeyItem | null>(null)
-  const [draftName, setDraftName] = useState('')
+  } = useApiKeys();
+  const [selectedKeyIdOverride, setSelectedKeyIdOverride] = useState<
+    string | null
+  >(null);
+  const [editingItem, setEditingItem] = useState<ApiKeyItem | null>(null);
+  const [draftName, setDraftName] = useState('');
 
   const selectedKeyId = useMemo(() => {
     if (
       selectedKeyIdOverride &&
       apiKeys.some((entry) => entry.id === selectedKeyIdOverride)
     ) {
-      return selectedKeyIdOverride
+      return selectedKeyIdOverride;
     }
 
-    return apiKeys[0]?.id ?? null
-  }, [apiKeys, selectedKeyIdOverride])
+    return apiKeys[0]?.id ?? null;
+  }, [apiKeys, selectedKeyIdOverride]);
 
   async function handleCreateKey() {
-    const created = await createKey()
+    const created = await createKey();
 
     if (!created) {
-      return
+      return;
     }
 
-    setSelectedKeyIdOverride(created.id)
+    setSelectedKeyIdOverride(created.id);
   }
 
   async function handleToggleKeyStatus(item: ApiKeyItem) {
-    await toggleKeyStatus(item)
+    await toggleKeyStatus(item);
   }
 
   async function handleDeleteKey(item: ApiKeyItem) {
-    const didDelete = await deleteKey(item.id)
+    const didDelete = await deleteKey(item.id);
 
     if (didDelete && selectedKeyIdOverride === item.id) {
-      setSelectedKeyIdOverride(null)
+      setSelectedKeyIdOverride(null);
     }
   }
 
   function handleEditKey(item: ApiKeyItem) {
-    setEditingItem(item)
-    setDraftName(item.name)
+    setEditingItem(item);
+    setDraftName(item.name);
   }
 
   function handleCloseEdit() {
-    setEditingItem(null)
+    setEditingItem(null);
   }
 
   async function handleSubmitEdit() {
     if (!editingItem || !draftName.trim()) {
-      return
+      return;
     }
 
-    const updated = await renameKey(editingItem.id, draftName.trim())
+    const updated = await renameKey(editingItem.id, draftName.trim());
 
     if (updated) {
-      setEditingItem(null)
-      setDraftName('')
+      setEditingItem(null);
+      setDraftName('');
     }
   }
 
@@ -110,10 +110,7 @@ export function ApiKeysPage() {
 
         <section className="page-surface">
           {error ? (
-            <ApiKeysErrorState
-              message={error}
-              onRetry={refresh}
-            />
+            <ApiKeysErrorState message={error} onRetry={refresh} />
           ) : isLoading ? (
             <ApiKeysLoadingState />
           ) : apiKeys.length === 0 && !isLoading ? (
@@ -165,5 +162,5 @@ export function ApiKeysPage() {
         />
       ) : null}
     </AppShell>
-  )
+  );
 }

@@ -10,6 +10,7 @@ These values are reconstructed from the cached Figma screenshots and local pixel
 ## Desktop Reference
 
 Source:
+
 - [desktop-reference.png](/Users/gennady/Documents/Projects/farlabs/docs/figma-reference/desktop-reference.png)
 - Canvas size: `1440 x 900`
 
@@ -119,6 +120,7 @@ Source:
 ## Mobile Reference
 
 Source:
+
 - [mobile-reference.png](/Users/gennady/Documents/Projects/farlabs/docs/figma-reference/mobile-reference.png)
 - Canvas size: `375 x 812`
 

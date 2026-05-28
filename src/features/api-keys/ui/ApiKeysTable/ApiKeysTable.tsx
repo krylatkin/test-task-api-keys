@@ -1,22 +1,22 @@
-import './ApiKeysTable.css'
+import './ApiKeysTable.css';
 import {
   formatCalendarDate,
   formatExpiry,
   formatRelativeDate,
-} from '@/shared/lib'
-import type { KeyboardEvent } from 'react'
-import type { ApiKeyItem } from '../../model/apiKeys.types'
-import { ApiKeyActionsMenu } from '../ApiKeyActionsMenu'
-import { ApiKeyStatusBadge } from '../ApiKeyStatusBadge'
+} from '@/shared/lib';
+import type { KeyboardEvent } from 'react';
+import type { ApiKeyItem } from '../../model/apiKeys.types';
+import { ApiKeyActionsMenu } from '../ApiKeyActionsMenu';
+import { ApiKeyStatusBadge } from '../ApiKeyStatusBadge';
 
 type ApiKeysTableProps = {
-  apiKeys: ApiKeyItem[]
-  selectedKeyId: string | null
-  onSelect: (id: string) => void
-  onEdit: (item: ApiKeyItem) => void
-  onToggleStatus: (item: ApiKeyItem) => void
-  onDelete: (item: ApiKeyItem) => void
-}
+  apiKeys: ApiKeyItem[];
+  selectedKeyId: string | null;
+  onSelect: (id: string) => void;
+  onEdit: (item: ApiKeyItem) => void;
+  onToggleStatus: (item: ApiKeyItem) => void;
+  onDelete: (item: ApiKeyItem) => void;
+};
 
 export function ApiKeysTable({
   apiKeys,
@@ -27,16 +27,19 @@ export function ApiKeysTable({
   onDelete,
 }: ApiKeysTableProps) {
   if (apiKeys.length === 0) {
-    return null
+    return null;
   }
 
-  function handleRowKeyDown(event: KeyboardEvent<HTMLTableRowElement>, id: string) {
+  function handleRowKeyDown(
+    event: KeyboardEvent<HTMLTableRowElement>,
+    id: string,
+  ) {
     if (event.key !== 'Enter' && event.key !== ' ') {
-      return
+      return;
     }
 
-    event.preventDefault()
-    onSelect(id)
+    event.preventDefault();
+    onSelect(id);
   }
 
   return (
@@ -91,5 +94,5 @@ export function ApiKeysTable({
         </tbody>
       </table>
     </div>
-  )
+  );
 }

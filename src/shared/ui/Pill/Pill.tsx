@@ -1,16 +1,16 @@
-import type { HTMLAttributes } from 'react'
-import { cn } from '@/shared/lib'
-import './Pill.css'
+import type { HTMLAttributes } from 'react';
+import { cn } from '@/shared/lib';
+import './Pill.css';
 
-type PillVariant = 'neutral' | 'accent'
-type PillSize = 'md' | 'lg'
-type PillShape = 'rounded' | 'circle'
+type PillVariant = 'neutral' | 'accent';
+type PillSize = 'md' | 'lg';
+type PillShape = 'rounded' | 'circle';
 
 type PillProps = HTMLAttributes<HTMLSpanElement> & {
-  variant?: PillVariant
-  size?: PillSize
-  shape?: PillShape
-}
+  variant?: PillVariant;
+  size?: PillSize;
+  shape?: PillShape;
+};
 
 export function Pill({
   variant = 'neutral',
@@ -33,5 +33,5 @@ export function Pill({
     >
       {children}
     </span>
-  )
+  );
 }

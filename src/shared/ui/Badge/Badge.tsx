@@ -1,14 +1,14 @@
-import type { HTMLAttributes } from 'react'
-import { cn } from '@/shared/lib'
-import './Badge.css'
+import type { HTMLAttributes } from 'react';
+import { cn } from '@/shared/lib';
+import './Badge.css';
 
-type BadgeVariant = 'neutral' | 'accent' | 'danger'
-type BadgeSize = 'sm' | 'md'
+type BadgeVariant = 'neutral' | 'accent' | 'danger';
+type BadgeSize = 'sm' | 'md';
 
 type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
-  variant?: BadgeVariant
-  size?: BadgeSize
-}
+  variant?: BadgeVariant;
+  size?: BadgeSize;
+};
 
 export function Badge({
   variant = 'neutral',
@@ -19,15 +19,10 @@ export function Badge({
 }: BadgeProps) {
   return (
     <span
-      className={cn(
-        'badge',
-        `badge--${variant}`,
-        `badge--${size}`,
-        className,
-      )}
+      className={cn('badge', `badge--${variant}`, `badge--${size}`, className)}
       {...props}
     >
       {children}
     </span>
-  )
+  );
 }

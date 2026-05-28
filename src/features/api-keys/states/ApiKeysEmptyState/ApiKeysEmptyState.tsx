@@ -1,10 +1,10 @@
-import './ApiKeysEmptyState.css'
-import AddRounded from '@mui/icons-material/AddRounded'
+import './ApiKeysEmptyState.css';
+import AddRounded from '@mui/icons-material/AddRounded';
 
 type ApiKeysEmptyStateProps = {
-  disabled?: boolean
-  onCreate: () => void
-}
+  disabled?: boolean;
+  onCreate: () => void;
+};
 
 export function ApiKeysEmptyState({
   disabled = false,
@@ -30,5 +30,5 @@ export function ApiKeysEmptyState({
         </button>
       </div>
     </div>
-  )
+  );
 }

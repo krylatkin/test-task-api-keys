@@ -1,9 +1,9 @@
-import type { ApiKeysRepository } from './apiKeys.repository'
+import type { ApiKeysRepository } from './apiKeys.repository';
 import type {
   ApiKeyItem,
   CreateApiKeyInput,
   UpdateApiKeyInput,
-} from '../model/apiKeys.types'
+} from '../model/apiKeys.types';
 
 let store: ApiKeyItem[] = [
   {
@@ -42,46 +42,46 @@ let store: ApiKeyItem[] = [
     createdAt: '2026-03-05T16:04:00.000Z',
     lastUsedAt: '2026-05-14T10:02:00.000Z',
   },
-]
+];
 
 function cloneItem(item: ApiKeyItem): ApiKeyItem {
-  return { ...item }
+  return { ...item };
 }
 
 function delay(ms: number): Promise<void> {
   return new Promise((resolve) => {
-    window.setTimeout(resolve, ms)
-  })
+    window.setTimeout(resolve, ms);
+  });
 }
 
 function findOrThrow(id: string): ApiKeyItem {
-  const item = store.find((entry) => entry.id === id)
+  const item = store.find((entry) => entry.id === id);
 
   if (!item) {
-    throw new Error('API key was not found.')
+    throw new Error('API key was not found.');
   }
 
-  return item
+  return item;
 }
 
 function buildNewKeyName(sourceLength: number): string {
-  return `new_api_key_${sourceLength + 1}`
+  return `new_api_key_${sourceLength + 1}`;
 }
 
 function buildMaskedKey(): string {
   return `${Math.random().toString(16).slice(2, 6)}...${Math.random()
     .toString(16)
-    .slice(2, 6)}`
+    .slice(2, 6)}`;
 }
 
 export const mockApiKeysRepository: ApiKeysRepository = {
   async list() {
-    await delay(2200)
+    await delay(2200);
 
-    return store.map(cloneItem)
+    return store.map(cloneItem);
   },
   async create(input: CreateApiKeyInput) {
-    await delay(160)
+    await delay(160);
 
     const item: ApiKeyItem = {
       id: crypto.randomUUID(),
@@ -91,49 +91,49 @@ export const mockApiKeysRepository: ApiKeysRepository = {
       expiresAt: '2026-07-04T00:00:00.000Z',
       createdAt: new Date().toISOString(),
       lastUsedAt: null,
-    }
+    };
 
-    store = [item, ...store]
-    return cloneItem(item)
+    store = [item, ...store];
+    return cloneItem(item);
   },
   async update(id: string, input: UpdateApiKeyInput) {
-    await delay(150)
+    await delay(150);
 
-    const current = findOrThrow(id)
-    const updated = { ...current, ...input }
+    const current = findOrThrow(id);
+    const updated = { ...current, ...input };
 
-    store = store.map((entry) => (entry.id === id ? updated : entry))
-    return cloneItem(updated)
+    store = store.map((entry) => (entry.id === id ? updated : entry));
+    return cloneItem(updated);
   },
   async revoke(id: string) {
-    await delay(140)
+    await delay(140);
 
-    const current = findOrThrow(id)
+    const current = findOrThrow(id);
     const updated: ApiKeyItem = {
       ...current,
       status: 'revoked',
       expiresAt: null,
-    }
+    };
 
-    store = store.map((entry) => (entry.id === id ? updated : entry))
-    return cloneItem(updated)
+    store = store.map((entry) => (entry.id === id ? updated : entry));
+    return cloneItem(updated);
   },
   async enable(id: string) {
-    await delay(140)
+    await delay(140);
 
-    const current = findOrThrow(id)
+    const current = findOrThrow(id);
     const updated: ApiKeyItem = {
       ...current,
       status: 'active',
-    }
+    };
 
-    store = store.map((entry) => (entry.id === id ? updated : entry))
-    return cloneItem(updated)
+    store = store.map((entry) => (entry.id === id ? updated : entry));
+    return cloneItem(updated);
   },
   async remove(id: string) {
-    await delay(120)
+    await delay(120);
 
-    findOrThrow(id)
-    store = store.filter((entry) => entry.id !== id)
+    findOrThrow(id);
+    store = store.filter((entry) => entry.id !== id);
   },
-}
+};

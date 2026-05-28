@@ -1,15 +1,15 @@
-import './ApiKeyActionsMenu.css'
-import MoreVertRounded from '@mui/icons-material/MoreVertRounded'
-import { useId, useState } from 'react'
-import type { ApiKeyStatus } from '../../model/apiKeys.types'
+import './ApiKeyActionsMenu.css';
+import MoreVertRounded from '@mui/icons-material/MoreVertRounded';
+import { useId, useState } from 'react';
+import type { ApiKeyStatus } from '../../model/apiKeys.types';
 
 type ApiKeyActionsMenuProps = {
-  itemName: string
-  itemStatus: ApiKeyStatus
-  onEdit: () => void
-  onToggleStatus: () => void
-  onDelete: () => void
-}
+  itemName: string;
+  itemStatus: ApiKeyStatus;
+  onEdit: () => void;
+  onToggleStatus: () => void;
+  onDelete: () => void;
+};
 
 export function ApiKeyActionsMenu({
   itemName,
@@ -18,17 +18,17 @@ export function ApiKeyActionsMenu({
   onToggleStatus,
   onDelete,
 }: ApiKeyActionsMenuProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const menuId = useId()
-  const toggleLabel = itemStatus === 'revoked' ? 'Enable' : 'Disable'
+  const [isOpen, setIsOpen] = useState(false);
+  const menuId = useId();
+  const toggleLabel = itemStatus === 'revoked' ? 'Enable' : 'Disable';
 
   function closeMenu() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   function handleAction(action: () => void) {
-    action()
-    closeMenu()
+    action();
+    closeMenu();
   }
 
   return (
@@ -37,7 +37,7 @@ export function ApiKeyActionsMenu({
       data-open={isOpen}
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) {
-          closeMenu()
+          closeMenu();
         }
       }}
     >
@@ -49,8 +49,8 @@ export function ApiKeyActionsMenu({
         aria-controls={menuId}
         aria-label={`Open actions for ${itemName}`}
         onClick={(event) => {
-          event.stopPropagation()
-          setIsOpen((current) => !current)
+          event.stopPropagation();
+          setIsOpen((current) => !current);
         }}
       >
         <MoreVertRounded fontSize="small" />
@@ -91,5 +91,5 @@ export function ApiKeyActionsMenu({
         </div>
       ) : null}
     </div>
-  )
+  );
 }

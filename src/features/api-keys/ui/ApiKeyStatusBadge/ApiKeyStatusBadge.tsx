@@ -1,24 +1,24 @@
-import './ApiKeyStatusBadge.css'
-import { Badge } from '@/shared/ui'
-import type { ApiKeyStatus } from '../../model/apiKeys.types'
+import './ApiKeyStatusBadge.css';
+import { Badge } from '@/shared/ui';
+import type { ApiKeyStatus } from '../../model/apiKeys.types';
 
 const STATUS_LABELS: Record<ApiKeyStatus, string> = {
   active: 'Active',
   expiring: 'Expiring',
   expired: 'Expired',
   revoked: 'Revoked',
-}
+};
 
 const STATUS_VARIANTS: Record<ApiKeyStatus, 'neutral' | 'accent'> = {
   active: 'accent',
   expiring: 'neutral',
   expired: 'neutral',
   revoked: 'neutral',
-}
+};
 
 type ApiKeyStatusBadgeProps = {
-  status: ApiKeyStatus
-}
+  status: ApiKeyStatus;
+};
 
 export function ApiKeyStatusBadge({ status }: ApiKeyStatusBadgeProps) {
   return (
@@ -28,5 +28,5 @@ export function ApiKeyStatusBadge({ status }: ApiKeyStatusBadgeProps) {
     >
       {STATUS_LABELS[status]}
     </Badge>
-  )
+  );
 }
