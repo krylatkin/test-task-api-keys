@@ -7,7 +7,7 @@
   border: 1px solid #2a2a2a;
   border-radius: 24px;
   overflow: hidden;
-  background: #141414;
+  background: #121212;
   transition: grid-template-columns 180ms ease;
 }
 
@@ -19,11 +19,11 @@
 .app-sidebar,
 .app-shell__viewport,
 .mobile-nav {
-  background: #141414;
+  background: #121212;
 }
 
 .app-sidebar {
-  border-right: 1px solid #2d2d2d;
+  border-right: 1px solid #2a2a2a;
   padding: 18px var(--sidebar-padding-inline) 24px;
   transition: padding 180ms ease;
 }
@@ -146,9 +146,9 @@
 }
 
 .desktop-topbar {
-  min-height: 84px;
+  min-height: 63px;
   padding: 0 20px;
-  border-bottom: 1px solid #2d2d2d;
+  border-bottom: 1px solid #2a2a2a;
 }
 
 .desktop-topbar__actions {

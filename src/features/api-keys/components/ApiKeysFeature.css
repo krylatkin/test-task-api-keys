@@ -23,22 +23,23 @@
 }
 
 .api-table thead th {
-  padding: 15px 18px;
+  padding: 14px 18px;
   border-bottom: 1px solid #303030;
   color: #b5b5b5;
   text-align: left;
   white-space: nowrap;
-  font-size: 0.84rem;
+  font-size: 15px;
   font-weight: 500;
+  line-height: 1;
 }
 
 .api-table tbody td {
-  padding: 17px 18px;
+  padding: 16px 18px;
   border-bottom: 1px solid #303030;
   color: #f2f2f2;
   white-space: nowrap;
-  font-size: 0.88rem;
-  line-height: 1.25;
+  font-size: 15px;
+  line-height: 20px;
 }
 
 .api-table tbody tr:last-child td {
