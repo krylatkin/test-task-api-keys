@@ -1,15 +1,17 @@
 import './ApiKeysPage.css'
 import AddRounded from '@mui/icons-material/AddRounded'
+import {
+  ApiKeyCardList,
+  ApiKeyEditDialog,
+  ApiKeysEmptyState,
+  ApiKeysErrorState,
+  ApiKeysLoadingState,
+  ApiKeysTable,
+  useApiKeys,
+  type ApiKeyItem,
+} from '@/features/api-keys'
 import { useMemo, useState } from 'react'
-import { ApiKeyCardList } from '../features/api-keys/components/ApiKeyCardList'
-import { ApiKeyEditDialog } from '../features/api-keys/components/ApiKeyEditDialog'
-import { ApiKeysEmptyState } from '../features/api-keys/components/ApiKeysEmptyState'
-import { ApiKeysErrorState } from '../features/api-keys/components/ApiKeysErrorState'
-import { ApiKeysLoadingState } from '../features/api-keys/components/ApiKeysLoadingState'
-import { ApiKeysTable } from '../features/api-keys/components/ApiKeysTable'
-import { useApiKeys } from '../features/api-keys/hooks/useApiKeys'
-import type { ApiKeyItem } from '../features/api-keys/model/apiKeys.types'
-import { AppShell } from '../shared/layout/AppShell'
+import { AppShell } from '@/shared/layout'
 
 export function ApiKeysPage() {
   const {

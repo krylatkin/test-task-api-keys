@@ -9,9 +9,8 @@ import PaidRounded from '@mui/icons-material/PaidRounded'
 import SettingsRounded from '@mui/icons-material/SettingsRounded'
 import SportsEsportsRounded from '@mui/icons-material/SportsEsportsRounded'
 import StackedBarChartRounded from '@mui/icons-material/StackedBarChartRounded'
+import { Badge, Pill } from '@/shared/ui'
 import { useState, type ReactNode } from 'react'
-import { Badge } from '../ui/Badge'
-import { Pill } from '../ui/Pill'
 
 type AppShellProps = {
   children: ReactNode

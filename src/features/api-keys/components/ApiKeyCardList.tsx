@@ -1,6 +1,6 @@
 import './ApiKeysFeature.css'
+import { formatMobileSummary } from '@/shared/lib'
 import type { ApiKeyItem } from '../model/apiKeys.types'
-import { formatMobileSummary } from '../../../shared/lib/formatters'
 import { ApiKeyActionsMenu } from './ApiKeyActionsMenu'
 import { ApiKeyStatusBadge } from './ApiKeyStatusBadge'
 

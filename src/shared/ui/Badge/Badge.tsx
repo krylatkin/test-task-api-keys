@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react'
-import { cn } from '../../lib/cn'
+import { cn } from '@/shared/lib'
 import './Badge.css'
 
 type BadgeVariant = 'neutral' | 'accent' | 'danger'

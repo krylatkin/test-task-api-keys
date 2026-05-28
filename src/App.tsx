@@ -1,4 +1,4 @@
-import { ApiKeysPage } from './pages/ApiKeysPage'
+import { ApiKeysPage } from '@/pages/ApiKeysPage'
 
 function App() {
   return <ApiKeysPage />

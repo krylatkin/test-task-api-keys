@@ -1,11 +1,11 @@
 import './ApiKeysFeature.css'
-import type { KeyboardEvent } from 'react'
-import type { ApiKeyItem } from '../model/apiKeys.types'
 import {
   formatCalendarDate,
   formatExpiry,
   formatRelativeDate,
-} from '../../../shared/lib/formatters'
+} from '@/shared/lib'
+import type { KeyboardEvent } from 'react'
+import type { ApiKeyItem } from '../model/apiKeys.types'
 import { ApiKeyActionsMenu } from './ApiKeyActionsMenu'
 import { ApiKeyStatusBadge } from './ApiKeyStatusBadge'
 
