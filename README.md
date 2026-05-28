@@ -9,6 +9,7 @@ Responsive implementation of the `API keys` page from the provided Figma design.
 - Vite
 - CSS with design tokens
 - MUI icons
+- Prettier
 - Playwright for E2E and visual regression testing
 
 ## Setup
@@ -28,6 +29,13 @@ Lint:
 
 ```bash
 npm run lint
+```
+
+Format:
+
+```bash
+npm run format
+npm run format:check
 ```
 
 ## Playwright
@@ -83,13 +91,24 @@ Notes:
 src/
   features/api-keys/
     api/
-    components/
     hooks/
     model/
+    states/
+      ApiKeysEmptyState/
+      ApiKeysErrorState/
+      ApiKeysLoadingState/
+    ui/
+      ApiKeyActionsMenu/
+      ApiKeyCardList/
+      ApiKeyEditDialog/
+      ApiKeyStatusBadge/
+      ApiKeysTable/
+    index.ts
   pages/
   shared/
     layout/
     lib/
+    ui/
 ```
 
 ## Architecture Notes
@@ -98,6 +117,7 @@ src/
 - Mock data is asynchronous on purpose, so the page already behaves like a backend-backed screen.
 - Desktop and mobile views share the same domain model and action handlers.
 - Layout primitives such as the sidebar and mobile chrome are separated from feature logic.
+- The `api-keys` feature exposes a public API through `src/features/api-keys/index.ts`, so pages do not import from internal folders directly.
 
 ## Assumptions
 
