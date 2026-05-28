@@ -9,6 +9,7 @@ Responsive implementation of the `API keys` page from the provided Figma design.
 - Vite
 - CSS with design tokens
 - MUI icons
+- Playwright for E2E and visual regression testing
 
 ## Setup
 
@@ -28,6 +29,43 @@ Lint:
 ```bash
 npm run lint
 ```
+
+## Playwright
+
+Playwright is configured for both end-to-end and visual regression coverage of the `API keys` page in two modes:
+
+- `desktop` with a `1440x1200` viewport
+- `mobile` with an `iPhone 13` profile
+
+Install Playwright browsers once after dependencies are installed:
+
+```bash
+npx playwright install
+```
+
+Run end-to-end tests:
+
+```bash
+npm run test:e2e
+```
+
+Run screenshot tests:
+
+```bash
+npm run test:screenshots
+```
+
+Update stored snapshots after intentional UI changes:
+
+```bash
+npm run test:screenshots:update
+```
+
+Notes:
+
+- Playwright starts the Vite app automatically on `http://127.0.0.1:4173`
+- The test freezes time to keep screenshot output stable
+- Reference snapshots are stored in `tests/api-keys.screenshot.spec.ts-snapshots/`
 
 ## What Is Implemented
 

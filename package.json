@@ -8,8 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test:screenshots": "playwright test",
-    "test:screenshots:update": "playwright test --update-snapshots"
+    "test:e2e": "playwright test tests/api-keys.e2e.spec.ts",
+    "test:screenshots": "playwright test tests/api-keys.screenshot.spec.ts",
+    "test:screenshots:update": "playwright test tests/api-keys.screenshot.spec.ts --update-snapshots"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
