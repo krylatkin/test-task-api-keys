@@ -1,14 +1,14 @@
 @media (max-width: 960px) {
   .card .api-key-status-badge--expired {
-    background: #bd6464;
+    background: #c56666;
     color: #fff;
   }
 
   .card .api-key-status-badge {
     min-width: 0;
-    height: 25px;
+    height: 26px;
     flex-shrink: 0;
-    padding: 0 10px;
-    font-size: 0.8rem;
+    padding: 0 11px;
+    font-size: 0.78rem;
   }
 }

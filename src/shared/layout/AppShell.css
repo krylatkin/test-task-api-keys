@@ -241,7 +241,7 @@
 @media (max-width: 960px) {
   .app-shell {
     grid-template-columns: minmax(0, 1fr);
-    min-height: 100svh;
+    min-height: 100dvh;
     border: 0;
     border-radius: 0;
   }
@@ -254,15 +254,20 @@
   .mobile-header {
     display: grid;
     gap: 0;
-    padding: 18px 16px 0;
+    padding: calc(env(safe-area-inset-top, 0px) + 28px) 16px 0;
+  }
+
+  .mobile-header__main {
+    min-height: 22px;
+    align-items: flex-start;
   }
 
   .mobile-header__page {
     margin: 0;
-    color: #f6f6f6;
-    font-size: 1.9rem;
+    color: #fafafa;
+    font-size: 1.125rem;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.2;
   }
 
   .mobile-header__button {
@@ -272,7 +277,7 @@
   }
 
   .app-shell__content {
-    padding: 16px 16px 122px;
+    padding: 18px 16px calc(124px + env(safe-area-inset-bottom, 0px));
   }
 
   .mobile-nav {
@@ -282,8 +287,8 @@
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     align-items: start;
-    padding: 12px 12px 18px;
-    border-top: 1px solid #2c2c2c;
+    padding: 10px 12px calc(18px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid #2a2a2a;
   }
 
   .mobile-nav__link {
@@ -293,8 +298,8 @@
     justify-items: center;
     min-width: 0;
     padding-top: 0;
-    gap: 6px;
-    grid-template-rows: 36px auto;
+    gap: 5px;
+    grid-template-rows: 34px auto;
     color: #b1b1b1;
     font-size: 0.7rem;
   }
@@ -304,9 +309,9 @@
   }
 
   .mobile-nav__icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 18px;
+    width: 34px;
+    height: 34px;
+    border-radius: 17px;
     align-items: center;
     justify-content: center;
   }
@@ -317,7 +322,7 @@
 
   .mobile-nav__badge {
     position: absolute;
-    top: -1px;
+    top: -2px;
     right: 12px;
     display: inline-flex;
     align-items: center;
